@@ -4,18 +4,40 @@
  * and open the template in the editor.
  */
 package ihm;
+import Vue.VueTree;
+import java.awt.EventQueue;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
+ * Classe main permettant de lancer l'application
  *
- * @author Guillaume
+ * @author grp5
  */
 public class IHM {
 
     /**
+     * Main permettant de lancer l'application
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    //VueTree frame = new VueTree();
+
+                    //frame.createTree();
+                    SQLiteConnection sql = new SQLiteConnection();
+                    sql.connect();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } 
+            }
+        });
     }
-    
 }
