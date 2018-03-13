@@ -5,12 +5,13 @@
  */
 package Vue;
 
+import Modele.Eleve;
+import Modele.Classe;
 import Controleur.*;
 import java.util.*;
 import javax.swing.*;
 
 import javax.swing.table.AbstractTableModel;
-import Noyau.*;
 
 /**
  * Classe permettant de gérer l'affichage de la JTable

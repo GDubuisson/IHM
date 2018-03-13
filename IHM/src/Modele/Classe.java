@@ -1,4 +1,4 @@
-package Noyau;
+package Modele;
 
 import java.util.ArrayList;
 

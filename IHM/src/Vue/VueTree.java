@@ -1,12 +1,13 @@
 package Vue;
 
+import Modele.Eleve;
+import Modele.Classe;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 import controleur.ControleurSave;
 import controleur.ControleurTree;
-import Noyau.*;
 import Modele.*;
 
 /**

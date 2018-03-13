@@ -5,8 +5,6 @@
  */
 package Modele;
 
-import Noyau.*;
-
 /**
  * Classe qui permet de créer un modèle contenant un établissement avec des
  * classes et des élèves

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Noyau;
+package Modele;
 
 /**
  * Classe élève qui permet de gérer un élève 

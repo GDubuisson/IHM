@@ -6,8 +6,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import Vue.VueTree;
-import Noyau.Classe;
-import Noyau.Eleve;
+import Modele.Classe;
+import Modele.Eleve;
 
 /**
  * Classe permet de gérer la JavaTable
