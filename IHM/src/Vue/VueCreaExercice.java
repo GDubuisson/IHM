@@ -11,4 +11,6 @@ package Vue;
  */
 public class VueCreaExercice {
     
+    
+    
 }
