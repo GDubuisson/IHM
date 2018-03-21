@@ -5,9 +5,9 @@
  */
 package Vue;
 
-import Modele.Eleve;
-import Modele.Classe;
-import Controleur.*;
+//import Modele.Classe;
+//import Modele.Eleve;
+//import Controleur.ControleurTable;
 import java.util.*;
 import javax.swing.*;
 
@@ -17,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
  * Classe permettant de gérer l'affichage de la JTable
  *
  * @author grp5
- */
+ *//*
 public class VueTable extends JScrollPane {
 
     private JTable table;
@@ -29,7 +29,7 @@ public class VueTable extends JScrollPane {
      * Constructeur de la table VueTable
      *
      * @param vue
-     */
+     *//*
     public VueTable(VueTree vue) {
         Classe classe = new Classe("", "");
         this.vue = vue;
@@ -48,7 +48,7 @@ public class VueTable extends JScrollPane {
      * Méthode permettant de modifier les informations de la classe
      *
      * @param classe
-     */
+     *//*
     public void setData(Classe classe) {
         modeleTable = new ModeleStatique(classe);
         table = new JTable(modeleTable);
@@ -68,7 +68,7 @@ public class VueTable extends JScrollPane {
 
     /**
      * Classe permettant la gestion de l'affichage la JTable
-     */
+     *//*
     public class ModeleStatique extends AbstractTableModel {
 
         private ArrayList<Eleve> eleves;
@@ -77,7 +77,7 @@ public class VueTable extends JScrollPane {
          * Constructeur de la classe ModeleStatique
          *
          * @param classe
-         */
+         *//*
         public ModeleStatique(Classe classe) {
             eleves = classe.getEleves();
         }
@@ -118,8 +118,9 @@ public class VueTable extends JScrollPane {
      * Accesseur à la JTable
      *
      * @return
-     */
+     *//*
     public JTable getTable() {
         return this.table;
     }
 }
+*/

@@ -21,9 +21,9 @@ public class Personne {
     private int idPersonne; 
     private String Nom;
     private String Prenom;
-    private String Classe;
     private String Mdp;
     private boolean Enseignant;
+    private String Classe;
     
     private ArrayList<Personne> listP;
 

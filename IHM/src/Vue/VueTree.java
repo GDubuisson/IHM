@@ -1,7 +1,7 @@
 package Vue;
-
-import Modele.Eleve;
+/*
 import Modele.Classe;
+import Modele.Eleve;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -15,7 +15,7 @@ import Modele.*;
  * 
  * @author grp5
  *
- */
+ *//*
 public class VueTree extends JFrame {
 
 	private JSplitPane splitPane;
@@ -226,56 +226,56 @@ public class VueTree extends JFrame {
 
 	/**
 	 * @return SetProf
-	 */
+	 *//*
 	public JTextField getTxtProf() {
 		return setProf;
 	}
 
 	/**
 	 * @return SetNombreEleves
-	 */
+	 *//*
 	public JTextField getTxtNombreEleves() {
 		return setNombreEleves;
 	}
 
 	/**
 	 * @return SetNiveau
-	 */
+	 *//*
 	public JTextField getTxtNiveau() {
 		return setNiveau;
 	}
 
 	/**
 	 * @return the SetPrenom
-	 */
+	 *//*
 	public JTextField getTxtPrenom() {
 		return setPrenom;
 	}
 
 	/**
 	 * @return the SetNom
-	 */
+	 *//*
 	public JTextField getTxtNom() {
 		return setNom;
 	}
 
 	/**
 	 * @return SetAge
-	 */
+	 *//*
 	public JTextField getTxtAge() {
 		return setAge;
 	}
 
 	/**
 	 * @return setSexe
-	 */
+	 *//*
 	public JTextField getTxtSexe() {
 		return setSexe;
 	}
 
 	/**
 	 * Creation du JTree
-	 */
+	 *//*
 	public void createTree() {
 		for (Classe classe : this.model.getEtablissement().getClasses()) {
 			DefaultMutableTreeNode laClasse = new DefaultMutableTreeNode(
@@ -293,7 +293,7 @@ public class VueTree extends JFrame {
 	 * Recpteur du controler JTree JTree
 	 * 
 	 * @param node
-	 */
+	 *//*
 	public void afficheInfo(Object node) {
 		if (node instanceof Eleve) {
 			currentEleve = (Eleve) node;
@@ -313,21 +313,21 @@ public class VueTree extends JFrame {
 
 	/**
 	 * @return the currentEleve
-	 */
+	 *//*
 	public Eleve getCurrentEleve() {
 		return currentEleve;
 	}
 
 	/**
 	 * @return the currentClasse
-	 */
+	 *//*
 	public Classe getCurrentClasse() {
 		return currentClasse;
 	}
 
 	/**
 	 * Recepteur des modifs de table
-	 */
+	 *//*
 	public void afficheInfo(VueTree this,Eleve node) {
 		if (node instanceof Eleve) {
 			currentEleve = node;
@@ -338,7 +338,7 @@ public class VueTree extends JFrame {
 
 	/**
 	 * Met a jour tous les champs de la view;
-	 */
+	 *//*
 	public void update() {
 		if (currentEleve != null) {
 			setSexe.setText(currentEleve.getSexe());
@@ -367,3 +367,4 @@ public class VueTree extends JFrame {
 	}
 
 }
+*/
