@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class InfoBDD {
     
     private static ArrayList<Personne> listP;
+    private static ArrayList<Personne> listE;
     /**
     * Création de la liste Tentative (tentatives des exercices)
     */
@@ -58,5 +59,40 @@ public class InfoBDD {
         return listP;
     }
     
+    public static ArrayList<Personne> getListEleve () {
+        
+        listP = new ArrayList<Personne>();
+
+        Connection recon = connect();
+        Statement stmt = null;
+       
+        String sql = "select IdPersonne, Nom, Prenom, Classe, Mdp, Enseignant from Personne where Enseignant=";
+        
+        
+        
+        try{
+            stmt = recon.createStatement();
+
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int idP = rs.getInt("IdPersonne");
+                String NomP = rs.getString("Nom");
+                String  PrenomP = rs.getString("Prenom"); 
+                String Classe = rs.getString("Classe");
+                String Mdp = rs.getString("Mdp");
+                boolean Enseignant = rs.getBoolean("Enseignant");
+
+                Personne p = new Personne(idP,NomP,PrenomP,Classe,Mdp,Enseignant);
+                System.out.println(p.Info());
+
+                listE.add(p);                          
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return listE;
+    }
     
 }

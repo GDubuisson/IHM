@@ -1,4 +1,4 @@
-package Controleur;
+/*package Controleur;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -14,7 +14,7 @@ import Modele.Eleve;
  *
  * @author grp5
  *
- */
+ *//*
 public class ControleurTable implements ListSelectionListener {
 	private JTable table;
 	private Classe classe;
@@ -25,7 +25,7 @@ public class ControleurTable implements ListSelectionListener {
      * @param table
      * @param classe
      * @param vue
-     */
+     *//*
     public ControleurTable(JTable table, Classe classe, VueTree vue) {
         this.table = table;
         this.classe = classe;
@@ -55,3 +55,4 @@ public class ControleurTable implements ListSelectionListener {
         }
     }
 }
+*/

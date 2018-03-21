@@ -3,13 +3,13 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import Vue.VueTree;
+//import Vue.VueTree;
 
 /**
  * @author Gr5
  *
  */
-public class ControleurSave implements ActionListener {
+/*public class ControleurSave implements ActionListener {
 
     private VueTree vue;
 
@@ -18,7 +18,7 @@ public class ControleurSave implements ActionListener {
 	 * 
 	 * @param vue
 	 * 
-	 */
+	 *//*
 	public ControleurSave(VueTree vue) {
 		this.vue = vue;
 	}
@@ -52,3 +52,4 @@ public class ControleurSave implements ActionListener {
         }
     }
 }
+*/
