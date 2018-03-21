@@ -1,1 +1,9 @@
-/IHM/nbproject/private/
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+nbproject/project.properties
+nbproject/genfiles.properties
