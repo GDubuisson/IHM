@@ -34,8 +34,8 @@ public class VueConnexion extends JFrame {
     private JButton connectButton;
     private JTextField idPersonne;
     private JTextField mdp;
-    private JLabel idLabel; 
-    private JLabel mdpLabel; 
+    private JLabel idLabel;
+    private JLabel mdpLabel;
     private JPanel myPanel1;
     private JPanel myPanelText;
     protected JFrame myFrameWelcome;
