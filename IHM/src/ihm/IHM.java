@@ -28,8 +28,6 @@ public class IHM {
     public static void main(String[] args) {
         //VueTentativeSansModif TestTentativesansmodif = new VueTentativeSansModif();
         VueCreaExercice TestCreaExo = new VueCreaExercice();
-        //VueTentativeSansModif Test = new VueTentativeSansModif();
-        VueEleveHome Test = new VueEleveHome();
 //        EventQueue.invokeLater(new Runnable() {
 //            public void run() {
 //                try {
