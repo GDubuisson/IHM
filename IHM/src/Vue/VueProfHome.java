@@ -5,7 +5,7 @@
  */
 
 package Vue;
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -30,7 +30,7 @@ public class VueProfHome {
     private JLabel nomProf; 
     protected JFrame myFrameProfHome;
 
-    public VueProfHome() {
+    public VueProfHome(int idProf) {
         myFrameProfHome = new JFrame("Vue prof");
         myFrameProfHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

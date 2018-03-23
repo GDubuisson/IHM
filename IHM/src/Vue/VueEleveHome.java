@@ -29,7 +29,7 @@ public class VueEleveHome extends JFrame {
     private JPanel affichageIdentite,tableau,panelP;
             
             
-    public VueEleveHome() {
+    public VueEleveHome(int idEleve) {
         
 	
     myFrameEleveHome = new JFrame("EleveHome");
