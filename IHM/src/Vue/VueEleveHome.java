@@ -30,6 +30,7 @@ public class VueEleveHome extends JFrame {
             
             
     public VueEleveHome() {
+        
 	
     myFrameEleveHome = new JFrame("EleveHome");
     myFrameEleveHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
