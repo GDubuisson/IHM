@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ihm;
-import Vue.VueTree;
+import Vue.*;
 import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,19 +25,20 @@ public class IHM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    //VueTree frame = new VueTree();
-
-                    //frame.createTree();
-                    SQLiteConnection sql = new SQLiteConnection();
-                    sql.connect();
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } 
-            }
-        });
+        VueTentativeSansModif Test = new VueTentativeSansModif();
+//        EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                try {
+//                    //VueTree frame = new VueTree();
+//
+//                    //frame.createTree();
+//                    SQLiteConnection sql = new SQLiteConnection();
+//                    sql.connect();
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                } 
+//            }
+//        });
     }
 }
