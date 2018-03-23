@@ -6,6 +6,8 @@
 package ihm;
 import Modele.InfoBDD;
 import Modele.Personne;
+import Modele.Classe;
+import Vue.*;
 //import Vue.VueTree;
 import java.awt.EventQueue;
 import java.sql.Connection;
@@ -33,7 +35,11 @@ public class IHM {
                     //VueTree frame = new VueTree();
 
                     //frame.createTree();
-                    System.out.println(InfoBDD.getListEleve());
+                    //System.out.println(InfoBDD.getListEleve());
+                    //System.out.println(InfoBDD.getListPersonne());
+                    System.out.println(InfoBDD.getListClasse());
+                    VueTree vue = new VueTree();
+                    
                    // SQLiteConnection sql = new SQLiteConnection();
                     //sql.connect();
 

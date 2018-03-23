@@ -21,7 +21,7 @@ public class SQLiteConnection {
     public static Connection connect(){
         Connection conn = null;
         try {
-            String url = "jdbc:sqlite:src/ihm/IHM_5.db";
+            String url = "jdbc:sqlite:src/ihm/IHM_5_1.db";
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
         } catch (SQLException e){

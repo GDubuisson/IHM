@@ -5,40 +5,44 @@ import java.util.ArrayList;
 /**
  * Classe qui geres les Classes (promo). Chaque classe contient une liste
  * d'élève, possède un niveau et a un professeur attitré
- *//*
+ */
 public class Classe {
 
-/*    private ArrayList<Eleve> listeEleves;
+    private ArrayList<Personne> listeEleves;
     private String nomClasse;
-    private int IdClasse;
+    private int idClasse;
 
     /**
      * Constructeur de la classe 
-     * @param niveau
-     * @param professeur : nom du professeur attitré 
-     *//*
-    public Classe(String nomClasse, String professeur) {
+     * @param idClasse
+     * @param nomClasse
+     */
+    public Classe(int idClasse, String nomClasse) {
 
-        this.niveau = niveau;
-        this.professeur = professeur;
-        this.effectif = new ArrayList<Eleve>();
+        this.nomClasse = nomClasse;
+        this.idClasse = idClasse;
+       // this.listeEleves = new ArrayList<Personne>();
     }
 
     /**
      * Méthode qui permet d'ajouter des élèves à la classe 
      * @param e -> l'élève a ajouter 
      *//*
-    public void addEleve(Eleve e) {
-        this.effectif.add(e);
+    public void addEleve(Personne e) {
+        this.listeEleves.add(e);
         e.setClasse(this);
     }
 
     /**
      * Méthode qui ressort le niveau de la classe 
      * @return niveau 
-     *//*
-    public Object getNiveau() {
-        return this.niveau;
+     */
+    public String getNomClasse() {
+        return this.nomClasse;
+    }
+    
+    public int getIdClasse(){
+        return this.idClasse;
     }
 
     /**
@@ -87,18 +91,10 @@ public class Classe {
      * Methode qui retourne l'élève correspondant à un index 
      * @param index
      * @return élève correspondant 
-     *//*
-    public Eleve get(int index) {
+     */
+    public Personne get(int index) {
 
-        return effectif.get(index);
-    }
-
-    /**
-     * Methode qui permet de changer le professeur associé à une classe 
-     * @param professeur -> nom du nouveau professeur de la classe 
-     *//*
-    public void setProf(String professeur) {
-        this.professeur = professeur;
+        return listeEleves.get(index);
     }
 
     /**
@@ -108,7 +104,8 @@ public class Classe {
     public void setNiveau(String niveau) {
         this.niveau = niveau;
 
+    }*/
+public String Info(){
+        return this.getIdClasse()+" "+this.getNomClasse()+" "; 
     }
-
 }
-*/
