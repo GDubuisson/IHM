@@ -19,42 +19,48 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-/**
- *
- * @author Guillaume
- */
+
+
+
 public class VueEleveHome extends JFrame {
     
+    protected JFrame myFrameEleveHome;
+    private JButton btQuitter;
+    private JPanel affichageIdentite,tableau,panelP;
+            
+            
     public VueEleveHome() {
-        
-    this.setLocationRelativeTo(null);
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setTitle("Eleve_Accueil");
-    this.setSize(300, 120);
-
-    //Les données du tableau
-    Object[][] data = {
-      {"Cysboy", "28 ans", "1.80 m"},
-      {"BZHHydde", "28 ans", "1.80 m"},
-      {"IamBow", "24 ans", "1.90 m"},
-      {"FunMan", "32 ans", "1.85 m"}
-      };
+	
+    myFrameEleveHome = new JFrame("EleveHome");
+    myFrameEleveHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   
+    affichageIdentite = new JPanel();
+    panelP = new JPanel();
+    tableau = new JPanel();
     
-    //Les titres des colonnes
-
-    String  title[] = {"Nom exercice", "Score", "Nombre d'essai"};
-
-    JTable tableau = new JTable(data, title);
-
-    //Nous ajoutons notre tableau à notre contentPane dans un scroll
-
-    //Sinon les titres des colonnes ne s'afficheront pas !
-
-    this.getContentPane().add(new JScrollPane(tableau));
-
-  }   
-      public static void main(String[] args){
-    VueEleveHome fen = new VueEleveHome();
-    fen.setVisible(true);
-  }  
+    btQuitter = new JButton("Quitter");
+    
+    btQuitter.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //Valide
+            }
+        });
+    
+    affichageIdentite.setLayout(new GridLayout(1, 3));
+    
+    
+    
+    affichageIdentite.add(btQuitter);
+    
+    
+    panelP.add(affichageIdentite,BorderLayout.NORTH);
+    myFrameEleveHome.add(panelP);
+     
+    
+    
+    
+    myFrameEleveHome.setVisible(true);
+    myFrameEleveHome.pack();
+  }
+  
 }

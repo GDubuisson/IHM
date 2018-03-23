@@ -26,7 +26,8 @@ public class IHM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        VueTentativeSansModif Test = new VueTentativeSansModif();
+        //VueTentativeSansModif Test = new VueTentativeSansModif();
+        VueEleveHome Test = new VueEleveHome();
 //        EventQueue.invokeLater(new Runnable() {
 //            public void run() {
 //                try {
