@@ -47,6 +47,7 @@ public class VueEleveHome extends JFrame {
         });
     
     affichageIdentite.setLayout(new GridLayout(1, 3));
+    panelP.setPreferredSize(new Dimension(200, 200));
     
     
     
