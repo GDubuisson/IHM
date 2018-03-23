@@ -76,9 +76,10 @@ public class VueTentativeSansModif {
             }
         });
         
-        btAvancer.addActionListener(new ActionListener() {
-            TortueG.avancer();
-        });
+       // btAvancer.addActionListener(new ActionListener() {
+       //     TortueG.avancer();
+      //  });
+      
         btTourner = new JButton("Tourner");
         btEcrire = new JButton("Ecrire");
         btSelTortue = new JButton("Selectionner autre tortue");

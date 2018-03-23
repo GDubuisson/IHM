@@ -13,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import Vue.*;
 
 /**
  * Classe main permettant de lancer l'application
@@ -27,20 +28,21 @@ public class IHM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    //VueTree frame = new VueTree();
-
-                    //frame.createTree();
-                    System.out.println(InfoBDD.getListEleve());
-                   // SQLiteConnection sql = new SQLiteConnection();
-                    //sql.connect();
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } 
-            }
-        });
+        VueTentativeSansModif Test = new VueTentativeSansModif();
+//        EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                try {
+//                    //VueTree frame = new VueTree();
+//
+//                    //frame.createTree();
+//                    System.out.println(InfoBDD.getListEleve());
+//                   // SQLiteConnection sql = new SQLiteConnection();
+//                    //sql.connect();
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                } 
+//            }
+//        });
     }
 }
