@@ -47,7 +47,6 @@ public class VueCreaExercice extends JFrame implements ActionListener {
         myColorTurtle = new TortueCouleur("RED");
         myTortue = myGraphicTurtle;
         
-        //myFrameExercice = new JFrame("Exercice");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         barreHaut = new JPanel();
