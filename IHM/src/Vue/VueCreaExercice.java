@@ -19,7 +19,7 @@ public class VueCreaExercice extends JFrame implements ActionListener {
     
     private JButton btValider, btUndo,btEffacer, btRetourMenu, btAvancer, btTourner, btEcrire, btNePasEcrire,btSelTortue;
     private JPanel barreHaut, panelPrincip, panelCode, barreBas, panelDessinProf;
-    protected JFrame myFrameExercice;
+    //protected JFrame myFrameExercice;
     private TortueG myTortue,myGraphicTurtle,myColorTurtle;
     
      public void actionPerformed (ActionEvent ae) {
