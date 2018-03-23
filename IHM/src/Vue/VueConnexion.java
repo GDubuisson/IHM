@@ -12,6 +12,7 @@ package Vue;
  */
  
 
+import Controleur.ControleurConnexion;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -24,6 +25,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import Controleur.ControleurConnexion; 
+import javax.swing.JOptionPane;
 
 /**
  *Classe permettant à l'utilisateur de se connecter 
@@ -34,8 +37,8 @@ public class VueConnexion extends JFrame {
     private JButton connectButton;
     private JTextField idPersonne;
     private JTextField mdp;
-    private JLabel idLabel; 
-    private JLabel mdpLabel; 
+    private JLabel idLabel;
+    private JLabel mdpLabel;
     private JPanel myPanel1;
     private JPanel myPanelText;
     protected JFrame myFrameWelcome;
@@ -57,16 +60,40 @@ public class VueConnexion extends JFrame {
         mdp.setColumns(10);
         myPanelText.add(mdp, BorderLayout.SOUTH);
 
-        connectButton = new JButton("Se connecter");
-         connectButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //connexion à la base de donnée  
-                //if eleve
-                // ouvre l'interface élève
-                //else
-                // ouvre l'interface prof : VueProfHome
-            }
-        });
+        connectButton = new JButton("Se connecter"); 
+        
+        connectButton.addActionListener(new ActionListener () {
+                public void actionPerformed (ActionEvent e) {
+                    //recupere les donnees de l'eleve
+                    int idPersonneField = Integer.parseInt(idPersonne.getText());
+                    String mdpField = mdp.getText();
+                    
+                    System.out.println(idPersonneField); 
+                    System.out.println(mdpField); 
+
+                    if (ControleurConnexion.connexion(idPersonneField, mdpField)==true){
+                        if (ControleurConnexion.getProf()){
+                            VueProfHome vueProfHome = new VueProfHome(idPersonneField, myFrameWelcome);
+                            //ferme la fenetre de connexion
+                            System.out.println("connexion reussie");
+                            dispose();
+                        }  
+                        else{
+                            VueEleveHome vueEleveHome = new VueEleveHome(idPersonneField);
+                            //ferme la fenetre de connexion
+                            System.out.println("connexion reussie");
+                            dispose();
+                        }
+                    }
+                    
+                    else{
+                        JOptionPane erreur_connexion;
+                        erreur_connexion = new JOptionPane();
+                        erreur_connexion.showMessageDialog(null, "Identifiant ou mot de passe incorrect", "Echec connexion", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }); 
+         
         myPanelText.add(idLabel); 
         myPanelText.add(idPersonne); 
         myPanelText.add(mdpLabel); 
@@ -81,6 +108,16 @@ public class VueConnexion extends JFrame {
         myFrameWelcome.setVisible(true);
         myFrameWelcome.pack();
 
+    }
+    public JTextField getIdPersonne(){
+        return idPersonne; 
+    }
+    
+    public JTextField getMdp(){
+        return mdp; 
+    }
+    public JFrame getFrame(){
+        return myFrameWelcome; 
     }
 }
 

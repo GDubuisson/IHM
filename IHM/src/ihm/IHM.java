@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import Vue.*;
 
 /**
  * Classe main permettant de lancer l'application
@@ -29,20 +30,18 @@ public class IHM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //VueTentativeSansModif TestTentativesansmodif = new VueTentativeSansModif();
+        //VueCreaExercice TestCreaExo = new VueCreaExercice();
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
                     //VueTree frame = new VueTree();
-
+        
                     //frame.createTree();
-                    //System.out.println(InfoBDD.getListEleve());
-                    //System.out.println(InfoBDD.getListPersonne());
-                    System.out.println(InfoBDD.getListClasse());
-                    VueTree vue = new VueTree();
-                    
-                   // SQLiteConnection sql = new SQLiteConnection();
-                    //sql.connect();
-
+                    SQLiteConnection sql = new SQLiteConnection();
+                    sql.connect();
+                    VueConnexion connexion = new VueConnexion(); 
+//
                 } catch (Exception e) {
                     e.printStackTrace();
                 } 
