@@ -116,7 +116,7 @@ public class InfoBDD {
         }
         return listC;
     }
-    public static ArrayList<Personne> getListEleveClasse (String nomClasse) {
+   /* public static ArrayList<Personne> getListEleveClasse (String nomClasse) {
         
         listEleveClasse = new ArrayList<Personne>();
         
@@ -142,6 +142,6 @@ public class InfoBDD {
             System.out.println(e.getMessage());
         }
         return listeEleveClasse;
-    } 
+    } */
     
 }
