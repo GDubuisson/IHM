@@ -28,6 +28,8 @@ public class VueTree extends JFrame {
 	/*private JSplitPane splitPane;*/
         private final JFrame Interface = new JFrame();
 	private JTree tree;
+        private Personne persoSelectionne;
+        private Classe classeSelectionnee;
 	private DefaultMutableTreeNode racine;
         
 	/*private JPanel panelEleve;
@@ -69,13 +71,15 @@ public class VueTree extends JFrame {
             tree.setShowsRootHandles(true);
             tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
             this.add(tree);
+            this.pack();
             this.setVisible(true);
         }
         
         public void CreationTree(){
-            for (Personne classe : InfoBDD.getListPersonne()){
-                DefaultMutableTreeNode noeudC = new DefaultMutableTreeNode (classe.getNom());
+            for (Classe classe : InfoBDD.getListClasse()){
+                DefaultMutableTreeNode noeudC = new DefaultMutableTreeNode (classe.getNomClasse());
                 racine.add(noeudC);
+                 System.out.println(noeudC.getElevesClasse());
                 for (Personne p : InfoBDD.getListPersonne()){
                     DefaultMutableTreeNode noeudE = new DefaultMutableTreeNode (p.getNom());
                     noeudC.add(noeudE);    
@@ -84,12 +88,30 @@ public class VueTree extends JFrame {
             }
             
         }
-        
         public static void main(String[] args) {
             VueTree vue = new VueTree();
             vue.CreationTree();
-}
-}
+        }
+}        
+       /* public void controllerJTreeCall(Object selectedNode){
+        if (selectedNode instanceof Personne) { //si l'élément choisi est un élève
+            persoSelectionne = (Personne)selectedNode; //l'élève courant est celui sélectionné
+            String currentClasse =  persoSelectionne.getNom(); //la classe courante est celle de l'élève sélectionné
+            classeSelectionnee = new Classe(currentClasse);
+            //update();//mis à jour
+            
+        }else if(selectedNode instanceof Classe){ //si l'élément choisi est une classe
+            currentEleve = null; //il n'y a pas d'élève courant
+            currentClasse = (Classe)selectedNode; // la classe courante est celle sélectionnée
+            //update(); //mis à jour
+            
+        }else{
+            System.out.println("Erreur");
+        }
+    }
+        */
+        
+
 
 		// Base
 		/*getContentPane().setFont(new Font("Arial", Font.PLAIN, 18));

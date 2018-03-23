@@ -21,6 +21,7 @@ public class InfoBDD {
     private static ArrayList<Personne> listP;
     private static ArrayList<Personne> listE;
     private static ArrayList<Classe> listC;
+    private static ArrayList<Personne> listEleveClasse;
     /**
     * Création de la liste Tentative (tentatives des exercices)
     */
@@ -98,7 +99,7 @@ public class InfoBDD {
 
         Connection recon = connect();
         Statement stmt = null;        
-        String sql = "select IdClasse, NomClasse from Classe";
+        String sql = "select IdClasse, NomClasse from classe";
         
         try{
             stmt = recon.createStatement();
@@ -115,5 +116,32 @@ public class InfoBDD {
         }
         return listC;
     }
+    public static ArrayList<Personne> getListEleveClasse (String nomClasse) {
+        
+        listEleveClasse = new ArrayList<Personne>();
+        
+        Connection recon = connect();
+        Statement stmt = null;            
+        String sql = "select IdPersonne, Nom, Prenom, Classe from Personne where Classe="+'"'+niveau+'"';
+
+        try{
+            stmt = recon.createStatement();
+
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int idEleve = rs.getInt("IdEleve");
+                String  nomEleve = rs.getString("NomEleve"); 
+                String  prenomEleve = rs.getString("PrenomEleve");
+                
+                
+               Eleve eleve = new Eleve(idEleve,nomEleve,prenomEleve,niveau);
+               listeEleveClasse.add(eleve);                          
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return listeEleveClasse;
+    } 
     
 }
