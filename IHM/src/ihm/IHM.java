@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package ihm;
+import Modele.InfoBDD;
+import Modele.Personne;
+import Modele.Classe;
 import Vue.*;
+//import Vue.VueTree;
 import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.DriverManager;

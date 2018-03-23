@@ -1,4 +1,11 @@
 package Vue;
+
+import Modele.*;
+import javax.swing.JFrame;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeSelectionModel;
+
 /*
 import Modele.Classe;
 import Modele.Eleve;
@@ -15,14 +22,15 @@ import Modele.*;
  * 
  * @author grp5
  *
- *//*
+ */
 public class VueTree extends JFrame {
 
-	private JSplitPane splitPane;
+	/*private JSplitPane splitPane;*/
+        private final JFrame Interface = new JFrame();
 	private JTree tree;
 	private DefaultMutableTreeNode racine;
         
-	private JPanel panelEleve;
+	/*private JPanel panelEleve;
 	private JPanel panelProf;
         private JPanel panelFormField;
         private JPanel panelEleveContent;
@@ -51,13 +59,40 @@ public class VueTree extends JFrame {
 	private Eleve currentEleve;
 	private Classe currentClasse;
 	private Modele model;
-	private VueTable viewTable;
+	private VueTable viewTable;*/
 
 	// create the frame
 	public VueTree() {
+            
+            racine = new DefaultMutableTreeNode("GPhy");
+            tree = new JTree(racine);
+            tree.setShowsRootHandles(true);
+            tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+            this.add(tree);
+            this.setVisible(true);
+        }
+        
+        public void CreationTree(){
+            for (Personne classe : InfoBDD.getListPersonne()){
+                DefaultMutableTreeNode noeudC = new DefaultMutableTreeNode (classe.getNom());
+                racine.add(noeudC);
+                for (Personne p : InfoBDD.getListPersonne()){
+                    DefaultMutableTreeNode noeudE = new DefaultMutableTreeNode (p.getNom());
+                    noeudC.add(noeudE);    
+                }   
+
+            }
+            
+        }
+        
+        public static void main(String[] args) {
+            VueTree vue = new VueTree();
+            vue.CreationTree();
+}
+}
 
 		// Base
-		getContentPane().setFont(new Font("Arial", Font.PLAIN, 18));
+		/*getContentPane().setFont(new Font("Arial", Font.PLAIN, 18));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setTitle("Projet - Gr5");
 

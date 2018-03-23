@@ -20,20 +20,17 @@ public class InfoBDD {
     
     private static ArrayList<Personne> listP;
     private static ArrayList<Personne> listE;
+    private static ArrayList<Classe> listC;
     /**
     * Création de la liste Tentative (tentatives des exercices)
     */
     public static ArrayList<Personne> getListPersonne () {
         
         listP = new ArrayList<Personne>();
-
         Connection recon = connect();
         Statement stmt = null;
-        
-        
         String sql = "select IdPersonne, Nom, Prenom, Classe, Mdp, Enseignant from Personne";
-        
-        
+
         try{
             stmt = recon.createStatement();
 
@@ -66,7 +63,7 @@ public class InfoBDD {
         Connection recon = connect();
         Statement stmt = null;
        
-        String sql = "select IdPersonne, Nom, Prenom, Classe, Mdp, Enseignant from Personne where Enseignant=";
+        String sql = "select IdPersonne, Nom, Prenom, Classe, Mdp, Enseignant from Personne";
         
         
         
@@ -93,6 +90,30 @@ public class InfoBDD {
         }
 
         return listE;
+    }
+    
+    public static ArrayList<Classe> getListClasse () {
+        
+        listC = new ArrayList<Classe>();
+
+        Connection recon = connect();
+        Statement stmt = null;        
+        String sql = "select IdClasse, NomClasse from Classe";
+        
+        try{
+            stmt = recon.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int idC = rs.getInt("IdClasse");
+                String NomC = rs.getString("NomClasse");
+                Classe c = new Classe(idC,NomC);
+                listC.add(c);          
+                System.out.println(c.Info());
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return listC;
     }
     
 }
