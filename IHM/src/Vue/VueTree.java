@@ -1,6 +1,7 @@
 package Vue;
 
 import Modele.*;
+import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -29,37 +30,6 @@ public class VueTree extends JFrame {
         private final JFrame Interface = new JFrame();
 	private JTree tree;
 	private DefaultMutableTreeNode racine;
-        
-	/*private JPanel panelEleve;
-	private JPanel panelProf;
-        private JPanel panelFormField;
-        private JPanel panelEleveContent;
-        private JPanel panelEleveContentFields;
-        private JPanel panelBottom;
-        
-	private JTextField setProf;
-	private JTextField setNombreEleves;
-	private JTextField setNiveau;
-	private JTextField setPrenom;
-	private JTextField setNom;
-	private JTextField setAge;
-	private JTextField setSexe;
-	
-	private JButton ModificationClasse;
-	private JButton ModificationEleve;
-	
-	private JLabel lblPrenomEleve;
-	private JLabel lblSexeEleve;
-	private JLabel lblAgeEleve;
-	private JLabel lblNomEleve;
-        private JLabel lblProfesseur;
-	private JLabel lblNIveau;
-	private JLabel lblNbrEleves;
-        
-	private Eleve currentEleve;
-	private Classe currentClasse;
-	private Modele model;
-	private VueTable viewTable;*/
 
 	// create the frame
 	public VueTree() {
@@ -69,7 +39,11 @@ public class VueTree extends JFrame {
             tree.setShowsRootHandles(true);
             tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
             this.add(tree);
+            this.pack();
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.setVisible(true);
+            this.setPreferredSize(new Dimension(200,200));
+            
         }
         
         public void CreationTree(){
