@@ -52,6 +52,7 @@ public class VueProfHome {
         result.addActionListener(new ActionListener () {
             public void actionPerformed (ActionEvent e) {
                 VueTree resultats =  new VueTree(); 
+                resultats.CreationTree();
             }
         });
         
