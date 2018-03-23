@@ -29,6 +29,8 @@ public class VueTree extends JFrame {
 	/*private JSplitPane splitPane;*/
         private final JFrame Interface = new JFrame();
 	private JTree tree;
+        private Personne persoSelectionne;
+        private Classe classeSelectionnee;
 	private DefaultMutableTreeNode racine;
 
 	// create the frame
@@ -50,6 +52,7 @@ public class VueTree extends JFrame {
             for (Classe classe : InfoBDD.getListClasse()){
                 DefaultMutableTreeNode noeudC = new DefaultMutableTreeNode (classe.getNomClasse());
                 racine.add(noeudC);
+                 //System.out.println(noeudC.getElevesClasse());
                 for (Personne p : InfoBDD.getListPersonne()){
                     DefaultMutableTreeNode noeudE = new DefaultMutableTreeNode (p.getNom());
                     noeudC.add(noeudE);    
@@ -58,9 +61,9 @@ public class VueTree extends JFrame {
             }
             
         }
-        
         public static void main(String[] args) {
             VueTree vue = new VueTree();
             vue.CreationTree();
 }
-}
+}       
+
