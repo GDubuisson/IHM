@@ -29,7 +29,7 @@ public class InfoBDD {
         listP = new ArrayList<Personne>();
         Connection recon = connect();
         Statement stmt = null;
-        String sql = "select IdPersonne, Nom, Prenom, Classe, Mdp, Enseignant from Personne";
+        String sql = "select IdPersonne, Nom, Prenom, IdClasse, Mdp, Enseignant from Personne";
 
         try{
             stmt = recon.createStatement();
@@ -39,7 +39,7 @@ public class InfoBDD {
                 int idP = rs.getInt("IdPersonne");
                 String NomP = rs.getString("Nom");
                 String  PrenomP = rs.getString("Prenom"); 
-                String Classe = rs.getString("Classe");
+                String Classe = rs.getString("IdClasse");
                 String Mdp = rs.getString("Mdp");
                 boolean Enseignant = rs.getBoolean("Enseignant");
 
@@ -63,7 +63,7 @@ public class InfoBDD {
         Connection recon = connect();
         Statement stmt = null;
        
-        String sql = "select IdPersonne, Nom, Prenom, Classe, Mdp, Enseignant from Personne";
+        String sql = "select IdPersonne, Nom, Prenom, IdClasse, Mdp, Enseignant from Personne";
         
         
         
@@ -98,7 +98,7 @@ public class InfoBDD {
 
         Connection recon = connect();
         Statement stmt = null;        
-        String sql = "select IdClasse, NomClasse from Classe";
+        String sql = "select IdClasse, NomClasse from classe";
         
         try{
             stmt = recon.createStatement();
