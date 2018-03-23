@@ -27,16 +27,18 @@ public class VueProfHome {
     private JButton modifExo;
     private JButton evaluer;
     private JButton result;
-    private JPanel myPanel1;
+    private JPanel myPanel2;
     private JPanel myPanelButton;
     private JLabel nomProf; 
     protected JFrame myFrameProfHome;
 
-    public VueProfHome(int idProf) {
-        myFrameProfHome = new JFrame("Vue prof");
+    public VueProfHome(int idProf,JFrame currentFrame) {
+        myFrameProfHome = currentFrame; 
         myFrameProfHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        myPanel1 = new JPanel();
+        
+        
+        myPanel2 = new JPanel();
+        
         myPanelButton = new JPanel();
         myPanelButton.setLayout(new GridLayout(4,0));
         
@@ -62,12 +64,14 @@ public class VueProfHome {
         myPanelButton.add(result); 
         
         nomProf = new JLabel("nom prof"); 
-        myPanel1.setLayout(new BorderLayout());
-        myPanel1.add(nomProf, BorderLayout.NORTH);
-        myPanel1.add(myPanelButton, BorderLayout.CENTER);
+        myPanel2.setLayout(new BorderLayout());
+        myPanel2.add(nomProf, BorderLayout.NORTH);
+        myPanel2.add(myPanelButton, BorderLayout.CENTER);
 
         //connectButton.addActionListener(new GestionAction(this, "connexion"));
-        myFrameProfHome.add(myPanel1);
+        myFrameProfHome.setContentPane(myPanel2);
+        myFrameProfHome.repaint();
+        myFrameProfHome.revalidate();
         myFrameProfHome.setVisible(true);
         myFrameProfHome.pack();
 

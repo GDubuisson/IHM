@@ -73,7 +73,7 @@ public class VueConnexion extends JFrame {
 
                     if (ControleurConnexion.connexion(idPersonneField, mdpField)==true){
                         if (ControleurConnexion.getProf()){
-                            VueProfHome vueProfHome = new VueProfHome(idPersonneField);
+                            VueProfHome vueProfHome = new VueProfHome(idPersonneField, myFrameWelcome);
                             //ferme la fenetre de connexion
                             System.out.println("connexion reussie");
                             dispose();
@@ -115,6 +115,9 @@ public class VueConnexion extends JFrame {
     
     public JTextField getMdp(){
         return mdp; 
+    }
+    public JFrame getFrame(){
+        return myFrameWelcome; 
     }
 }
 
