@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package ihm;
-import Modele.InfoBDD;
-import Modele.Personne;
-//import Vue.VueTree;
+import Vue.*;
 import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -35,9 +33,8 @@ public class IHM {
 //                    //VueTree frame = new VueTree();
 //
 //                    //frame.createTree();
-//                    System.out.println(InfoBDD.getListEleve());
-//                   // SQLiteConnection sql = new SQLiteConnection();
-//                    //sql.connect();
+//                    SQLiteConnection sql = new SQLiteConnection();
+//                    sql.connect();
 //
 //                } catch (Exception e) {
 //                    e.printStackTrace();
