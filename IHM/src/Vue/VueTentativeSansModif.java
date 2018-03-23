@@ -53,8 +53,10 @@ public class VueTentativeSansModif {
         btSelTortue = new JButton("Selectionner autre tortue");
         
         barreHaut.setLayout(new GridLayout(1, 3));
+        barreBas.setLayout(new GridLayout(1,4));
         panelPrincip.setLayout(new BorderLayout());
         panelDessins.setLayout(new BorderLayout());
+        panelCode.setPreferredSize(new Dimension(100, 400));
         panelDessinProf.setPreferredSize(new Dimension(100, 100));
         panelDessinEleve.setPreferredSize(new Dimension(100,100));
         panelDessins.add(panelDessinProf,BorderLayout.NORTH);
@@ -78,18 +80,40 @@ public class VueTentativeSansModif {
             }
         });
         
-//        btAvancer.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                avancer();//retourmenu
-//            }
-//        });
-        btTourner = new JButton("Tourner");
-        btEcrire = new JButton("Ecrire");
-        btSelTortue = new JButton("Selectionner autre tortue");
+        btAvancer.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //Faire avancer la tortue.
+            }
+        });
+        
+        btTourner.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //Faire tourner la tortue.
+            }
+        });
+        
+        btEcrire.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //Faire Ecrire la tortue.
+            }
+        });
+        
+        btSelTortue.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //Selectionner la tortue.
+            }
+        }); 
         
         barreHaut.add(btValider);
         barreHaut.add(btRecommencer);
         barreHaut.add(btRetourMenu);
+        
+        
+        barreBas.add(btAvancer);
+        barreBas.add(btTourner);
+        barreBas.add(btEcrire);
+        barreBas.add(btSelTortue);
+        
         
         panelPrincip.add(barreHaut,BorderLayout.NORTH);
         panelPrincip.add(barreBas, BorderLayout.SOUTH);
