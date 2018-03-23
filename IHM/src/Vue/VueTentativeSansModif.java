@@ -5,6 +5,7 @@
  */
 package Vue;
 
+import Tortue.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -26,9 +27,7 @@ import javax.swing.JTextField;
  */
 public class VueTentativeSansModif {
     
-    private JButton btValider, btRecommencer, btRetourMenu;
-    private JTextField idPersonne;
-    private JTextField mdp;
+    private JButton btValider, btRecommencer, btRetourMenu, btAvancer, btTourner, btEcrire,btSelTortue;
     private JPanel barreHaut, panelPrincip, panelDessins, panelCode, barreBas, panelDessinProf, panelDessinEleve;
     protected JFrame myFrameExercice;
     
@@ -46,6 +45,10 @@ public class VueTentativeSansModif {
         btValider = new JButton("Valider");
         btRecommencer = new JButton("Recommencer");
         btRetourMenu = new JButton("Retour au menu");
+        btAvancer = new JButton("Avancer");
+        btTourner = new JButton("Tourner");
+        btEcrire = new JButton("Ecrire");
+        btSelTortue = new JButton("Selectionner autre tortue");
         
         barreHaut.setLayout(new GridLayout(1, 3));
         panelPrincip.setLayout(new BorderLayout());
@@ -63,15 +66,22 @@ public class VueTentativeSansModif {
         
         btRecommencer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+                //recommencer
             }
         });    
         
         btRetourMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            
+                //retourmenu
             }
         });
+        
+        btAvancer.addActionListener(new ActionListener() {
+            TortueG.avancer();
+        });
+        btTourner = new JButton("Tourner");
+        btEcrire = new JButton("Ecrire");
+        btSelTortue = new JButton("Selectionner autre tortue");
         
         barreHaut.add(btValider);
         barreHaut.add(btRecommencer);
