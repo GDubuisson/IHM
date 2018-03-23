@@ -41,6 +41,8 @@ public class VueTentativeSansModif {
         panelDessins = new JPanel();
         panelCode = new JPanel();
         barreBas = new JPanel();
+        panelDessinProf = new JPanel();
+        panelDessinEleve = new JPanel();
         
         btValider = new JButton("Valider");
         btRecommencer = new JButton("Recommencer");
@@ -76,9 +78,11 @@ public class VueTentativeSansModif {
             }
         });
         
-        btAvancer.addActionListener(new ActionListener() {
-            TortueG.avancer();
-        });
+//        btAvancer.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                avancer();//retourmenu
+//            }
+//        });
         btTourner = new JButton("Tourner");
         btEcrire = new JButton("Ecrire");
         btSelTortue = new JButton("Selectionner autre tortue");
