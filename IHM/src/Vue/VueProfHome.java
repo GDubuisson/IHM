@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -38,10 +40,20 @@ public class VueProfHome {
         myPanelButton = new JPanel();
         myPanelButton.setLayout(new GridLayout(4,0));
         
-        nouvelExo= new JButton("Nouvel exercice");  
+        nouvelExo= new JButton("Nouvel exercice");
+        nouvelExo.addActionListener(new ActionListener () {
+            public void actionPerformed (ActionEvent e) {
+                VueCreaExercice nouvelExo =  new VueCreaExercice(); 
+            }
+        });
         modifExo= new JButton("Modifier exercice");
         evaluer= new JButton("Evaluer");
         result = new JButton("Résultats");
+        result.addActionListener(new ActionListener () {
+            public void actionPerformed (ActionEvent e) {
+                VueTree resultats =  new VueTree(); 
+            }
+        });
         
         myPanelButton.add(nouvelExo); 
         myPanelButton.add(modifExo); 
