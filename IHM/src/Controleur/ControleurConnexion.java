@@ -40,7 +40,7 @@ public class ControleurConnexion implements ActionListener{
    private int idPersonneField; 
    private String mdpField; 
    private JFrame wint; 
-   
+  
    public ControleurConnexion(JTextField idPersonne, JTextField mdp, JFrame myFrameWelcome){
     ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites
  idPersonneField = Integer.parseInt(idPersonne.getText());
