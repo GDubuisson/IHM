@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Vue;
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,23 +27,36 @@ public class VueProfHome {
     private JButton modifExo;
     private JButton evaluer;
     private JButton result;
-    private JPanel myPanel1;
+    private JPanel myPanel2;
     private JPanel myPanelButton;
     private JLabel nomProf; 
     protected JFrame myFrameProfHome;
 
-    public VueProfHome() {
-        myFrameProfHome = new JFrame("Vue prof");
+    public VueProfHome(int idProf,JFrame currentFrame) {
+        myFrameProfHome = currentFrame; 
         myFrameProfHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        myPanel1 = new JPanel();
+        
+        
+        myPanel2 = new JPanel();
+        
         myPanelButton = new JPanel();
         myPanelButton.setLayout(new GridLayout(4,0));
         
-        nouvelExo= new JButton("Nouvel exercice");  
+        nouvelExo= new JButton("Nouvel exercice");
+        nouvelExo.addActionListener(new ActionListener () {
+            public void actionPerformed (ActionEvent e) {
+                VueCreaExercice nouvelExo =  new VueCreaExercice(); 
+            }
+        });
         modifExo= new JButton("Modifier exercice");
         evaluer= new JButton("Evaluer");
         result = new JButton("Résultats");
+        result.addActionListener(new ActionListener () {
+            public void actionPerformed (ActionEvent e) {
+                VueTree resultats =  new VueTree(); 
+                resultats.CreationTree();
+            }
+        });
         
         myPanelButton.add(nouvelExo); 
         myPanelButton.add(modifExo); 
@@ -48,12 +64,14 @@ public class VueProfHome {
         myPanelButton.add(result); 
         
         nomProf = new JLabel("nom prof"); 
-        myPanel1.setLayout(new BorderLayout());
-        myPanel1.add(nomProf, BorderLayout.NORTH);
-        myPanel1.add(myPanelButton, BorderLayout.CENTER);
+        myPanel2.setLayout(new BorderLayout());
+        myPanel2.add(nomProf, BorderLayout.NORTH);
+        myPanel2.add(myPanelButton, BorderLayout.CENTER);
 
         //connectButton.addActionListener(new GestionAction(this, "connexion"));
-        myFrameProfHome.add(myPanel1);
+        myFrameProfHome.setContentPane(myPanel2);
+        myFrameProfHome.repaint();
+        myFrameProfHome.revalidate();
         myFrameProfHome.setVisible(true);
         myFrameProfHome.pack();
 

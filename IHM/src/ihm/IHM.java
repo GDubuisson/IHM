@@ -4,13 +4,18 @@
  * and open the template in the editor.
  */
 package ihm;
+import Modele.InfoBDD;
+import Modele.Personne;
+import Modele.Classe;
 import Vue.*;
+//import Vue.VueTree;
 import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import Vue.*;
 
 /**
  * Classe main permettant de lancer l'application
@@ -26,20 +31,21 @@ public class IHM {
      */
     public static void main(String[] args) {
         //VueTentativeSansModif TestTentativesansmodif = new VueTentativeSansModif();
-        VueCreaExercice TestCreaExo = new VueCreaExercice();
-//        EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                try {
-//                    //VueTree frame = new VueTree();
+        //VueCreaExercice TestCreaExo = new VueCreaExercice();
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    //VueTree frame = new VueTree();
+        
+                    //frame.createTree();
+                    SQLiteConnection sql = new SQLiteConnection();
+                    sql.connect();
+                    VueConnexion connexion = new VueConnexion(); 
 //
-//                    //frame.createTree();
-//                    SQLiteConnection sql = new SQLiteConnection();
-//                    sql.connect();
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                } 
-//            }
-//        });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } 
+            }
+        });
     }
 }

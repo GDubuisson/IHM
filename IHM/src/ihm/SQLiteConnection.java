@@ -21,7 +21,7 @@ public class SQLiteConnection {
     public static Connection connect(){
         Connection conn = null;
         try {
-            String url = "jdbc:sqlite:src/ihm/IHM_5.db";
+            String url = "jdbc:sqlite:src/ihm/IHM_5_1.db";
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
         } catch (SQLException e){
@@ -30,18 +30,16 @@ public class SQLiteConnection {
         return(conn);
     } 
     
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         Connection recon = connect();
         Statement stmt = null;
-        String sql = "select IdPersonne,Nom,Prenom";
+        String sql = "select IdPersonne from Personne";
         try{
         stmt = recon.createStatement();
         
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()) {
             int id = rs.getInt("IdPersonne");
-            String nomP = rs.getString("Nom");
-            String prenomP = rs.getString("Prenom");
             System.out.println(id + "\t" + id );
         }
         
@@ -53,5 +51,5 @@ public class SQLiteConnection {
         }
         
         
-    }
+    }*/
 }

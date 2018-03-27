@@ -4,7 +4,7 @@ import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import Vue.VueTree;
+//import Vue.VueTree;
 
 /**
  * Classe permettant de gérer le JavaTree
@@ -13,13 +13,13 @@ import Vue.VueTree;
  */
 public class ControleurTree implements TreeSelectionListener {
 
-	private VueTree vue;
+//	private VueTree vue;
 	private JTree tree;
-
+/*
 	public ControleurTree(VueTree vue, JTree tree) {
 		this.vue = vue;
 		this.tree = tree;
-	}
+	}*/
 
     @Override
     public void valueChanged(TreeSelectionEvent arg0) {
@@ -32,7 +32,7 @@ public class ControleurTree implements TreeSelectionListener {
 
             Object nodeInfo = node.getUserObject();
             System.out.println("node info " + nodeInfo.getClass().getName());
-            vue.afficheInfo(nodeInfo);
+           // vue.afficheInfo(nodeInfo);
         }
 
     }

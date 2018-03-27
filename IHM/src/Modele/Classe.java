@@ -8,28 +8,28 @@ import java.util.ArrayList;
  */
 public class Classe {
 
-    private ArrayList<Eleve> effectif;
-    private String niveau;
-    private String professeur;
+    private ArrayList<Personne> listeEleves;
+    private String nomClasse;
+    private int idClasse;
 
     /**
      * Constructeur de la classe 
-     * @param niveau
-     * @param professeur : nom du professeur attitré 
+     * @param idClasse
+     * @param nomClasse
      */
-    public Classe(String niveau, String professeur) {
+    public Classe(int idClasse, String nomClasse) {
 
-        this.niveau = niveau;
-        this.professeur = professeur;
-        this.effectif = new ArrayList<Eleve>();
+        this.nomClasse = nomClasse;
+        this.idClasse = idClasse;
+       // this.listeEleves = new ArrayList<Personne>();
     }
 
     /**
      * Méthode qui permet d'ajouter des élèves à la classe 
      * @param e -> l'élève a ajouter 
-     */
-    public void addEleve(Eleve e) {
-        this.effectif.add(e);
+     *//*
+    public void addEleve(Personne e) {
+        this.listeEleves.add(e);
         e.setClasse(this);
     }
 
@@ -37,14 +37,18 @@ public class Classe {
      * Méthode qui ressort le niveau de la classe 
      * @return niveau 
      */
-    public Object getNiveau() {
-        return this.niveau;
+    public String getNomClasse() {
+        return this.nomClasse;
+    }
+    
+    public int getIdClasse(){
+        return this.idClasse;
     }
 
     /**
      * Methode qui donne la liste des élèves présent dans la classe 
      * @return liste d'élève
-     */
+     *//*
     public ArrayList<Eleve> getEleves() {
         return this.effectif;
     }
@@ -52,7 +56,7 @@ public class Classe {
     /**
      * Méthode qui permet de transformer les allocations mémoires en string 
      * @return
-     */
+     *//*
     @Override
     public String toString() {
         return this.niveau;
@@ -61,7 +65,7 @@ public class Classe {
     /**
      * Methode qui donne le nombre d'élèves dans la table 
      * @return
-     */
+     *//*
     public int getNombreEleves() {
         return this.effectif.size();
     }
@@ -69,7 +73,7 @@ public class Classe {
     /**
      * Methode qui permet d'accèder au nom du professeur affecté à la classe 
      * @return
-     */
+     *//*
     public String getProfesseur() {
         return this.professeur;
     }
@@ -78,7 +82,7 @@ public class Classe {
      * Methode qui permet de savoir si un élève est dans une classe 
      * @param eleve
      * @return boolean qui dit si l'élève passé en paramètre est dans la classe 
-     */
+     *//*
     public boolean contains(Eleve eleve) {
         return this.effectif.contains(eleve);
     }
@@ -88,26 +92,20 @@ public class Classe {
      * @param index
      * @return élève correspondant 
      */
-    public Eleve get(int index) {
+    public Personne get(int index) {
 
-        return effectif.get(index);
-    }
-
-    /**
-     * Methode qui permet de changer le professeur associé à une classe 
-     * @param professeur -> nom du nouveau professeur de la classe 
-     */
-    public void setProf(String professeur) {
-        this.professeur = professeur;
+        return listeEleves.get(index);
     }
 
     /**
      *Méthode pour changer le niveau de la classe 
      * @param niveau
-     */
+     *//*
     public void setNiveau(String niveau) {
         this.niveau = niveau;
 
+    }*/
+public String Info(){
+        return this.getIdClasse()+" "+this.getNomClasse()+" "; 
     }
-
 }
