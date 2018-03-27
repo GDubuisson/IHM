@@ -31,11 +31,13 @@ import javax.swing.JOptionPane;
 
   
 public class ControleurConnexion {
-   private static boolean isProf; 
+   private boolean isProf; 
    
-   public static boolean connexion (int idPersonne, String mdp){
-        ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites
-         
+   public ControleurConnexion(){
+       ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites
+   }
+   
+   public boolean connexion (int idPersonne, String mdp){        
         for (Personne personne : InfoBDD.getListPersonne()) {
             if ((personne.getIdPersonne() == idPersonne) && (personne.getMdp().equals(mdp))){
                 isProf=personne.isEnseignant(); 
@@ -46,7 +48,7 @@ public class ControleurConnexion {
         return(false);
     }
     
-   public static boolean getProf(){
+   public boolean getProf(){
        return isProf; 
    }
 }
