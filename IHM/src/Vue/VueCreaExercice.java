@@ -25,16 +25,16 @@ public class VueCreaExercice extends JFrame implements ActionListener {
      public void actionPerformed (ActionEvent ae) {
         if (ae.getSource() == btAvancer)
             myTortue.avancer();
-        else if (ae.getSource() == btEffacer) 
+        else if (ae.getSource() == btEffacer)
             myTortue.reset();
-        else if (ae.getSource() == btTourner) 
+        else if (ae.getSource() == btTourner)
             myTortue.tourner();
         else if (ae.getSource() == btEcrire)
             myTortue.tracer(true);
         else if (ae.getSource()== btNePasEcrire)
             myTortue.tracer(false);
-        else { // bChangeTortue
-            if (myTortue == myGraphicTurtle) 
+        else {
+            if (myTortue == myGraphicTurtle)
                 myTortue = myColorTurtle;
             else
                 myTortue = myGraphicTurtle;
@@ -47,7 +47,6 @@ public class VueCreaExercice extends JFrame implements ActionListener {
         myColorTurtle = new TortueCouleur("RED");
         myTortue = myGraphicTurtle;
         
-        //myFrameExercice = new JFrame("Exercice");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         barreHaut = new JPanel();
@@ -70,7 +69,6 @@ public class VueCreaExercice extends JFrame implements ActionListener {
         barreBas.setLayout(new GridLayout(1,5));
         panelPrincip.setLayout(new BorderLayout());
         panelCode.setPreferredSize(new Dimension(100, 100));
-        //panelDessinProf.setPreferredSize(new Dimension(100, 100));
         
         btValider.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
