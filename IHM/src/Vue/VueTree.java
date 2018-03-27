@@ -32,6 +32,8 @@ public class VueTree extends JFrame {
         private Personne persoSelectionne;
         private Classe classeSelectionnee;
 	private DefaultMutableTreeNode racine;
+        private Personne personneActive;
+        private Classe classeActive;
 
 	// create the frame
 	public VueTree() {
@@ -61,6 +63,23 @@ public class VueTree extends JFrame {
             }
             
         }
+        
+        public void controllerJTreeCall(Object selectedNode){
+        if (selectedNode instanceof Personne) { //si l'élément choisi est un élève
+            personneActive = (Personne)selectedNode; //l'élève courant est celui sélectionné
+            int niveau =  personneActive.getClasse(); //la classe courante est celle de l'élève sélectionné
+            classeActive= new Classe(niveau);
+            //update();//mis à jour
+            
+        }else if(selectedNode instanceof Classe){ //si l'élément choisi est une classe
+            personneActive = null; //il n'y a pas d'élève courant
+            classeActive = (Classe)selectedNode; // la classe courante est celle sélectionnée
+            //update(); //mis à jour
+            
+        }else{
+            System.out.println("Erreur");
+        }
+    }
         public static void main(String[] args) {
             VueTree vue = new VueTree();
             vue.CreationTree();

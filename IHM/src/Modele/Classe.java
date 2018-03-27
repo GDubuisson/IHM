@@ -21,7 +21,12 @@ public class Classe {
 
         this.nomClasse = nomClasse;
         this.idClasse = idClasse;
-       // this.listeEleves = new ArrayList<Personne>();
+        this.listeEleves = new ArrayList<Personne>();
+    }
+    
+      public Classe(int idClasse) {
+        this.idClasse = idClasse;
+        this.listeEleves = new ArrayList<Personne>();
     }
 
     /**
