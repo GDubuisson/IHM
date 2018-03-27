@@ -52,9 +52,9 @@ public class VueTree extends JFrame {
             for (Classe classe : InfoBDD.getListClasse()){
                 DefaultMutableTreeNode noeudC = new DefaultMutableTreeNode (classe.getNomClasse());
                 racine.add(noeudC);
-                 //System.out.println(noeudC.getElevesClasse());
-                for (Personne p : InfoBDD.getListPersonne()){
-                    DefaultMutableTreeNode noeudE = new DefaultMutableTreeNode (p.getNom());
+                 System.out.println(InfoBDD.getListEleveClasse(classe.getIdClasse()));
+                for (Personne p : InfoBDD.getListEleveClasse(classe.getIdClasse())){
+                    DefaultMutableTreeNode noeudE = new DefaultMutableTreeNode (p.getNom() + " " + p.getPrenom());
                     noeudC.add(noeudE);    
                 }   
 
