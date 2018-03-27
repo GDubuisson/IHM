@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.util.*;
 
 /**
  *
@@ -20,19 +21,59 @@ public class VueCreaExercice extends JFrame implements ActionListener {
     private JButton btValider, btUndo,btEffacer, btRetourMenu, btAvancer, btTourner, btEcrire, btNePasEcrire,btSelTortue;
     private JPanel barreHaut, panelPrincip, panelCode, barreBas, panelDessinProf;
     //protected JFrame myFrameExercice;
+    private Stack<String> lastAction;
     private TortueG myTortue,myGraphicTurtle,myColorTurtle;
     
      public void actionPerformed (ActionEvent ae) {
-        if (ae.getSource() == btAvancer)
+        if (ae.getSource() == btAvancer) {
             myTortue.avancer();
-        else if (ae.getSource() == btEffacer)
-            myTortue.reset();
-        else if (ae.getSource() == btTourner)
+            lastAction.add("avancer");
+        }
+        else if (ae.getSource() == btEffacer) {
+            while(!lastAction.empty()){
+                lastAction.pop();
+            }
+            myTortue.reset();}
+        else if (ae.getSource() == btTourner){
             myTortue.tourner();
-        else if (ae.getSource() == btEcrire)
+            lastAction.add("tourner");
+        }
+        else if (ae.getSource() == btEcrire){
             myTortue.tracer(true);
-        else if (ae.getSource()== btNePasEcrire)
+            lastAction.add("ecrire");
+        }
+        else if (ae.getSource()== btNePasEcrire){
             myTortue.tracer(false);
+            lastAction.add("npecrire");
+        }
+        else if (ae.getSource()==btUndo) {
+            if (!lastAction.empty()) {
+                lastAction.pop();
+                myTortue.reset();
+                for (int i = 0; i < lastAction.size(); i++) {
+                    if (null == lastAction.elementAt(i)) {
+                        break;
+                    } else {
+                        switch (lastAction.elementAt(i)) {
+                            case "avancer":
+                                myTortue.avancer();
+                                break;
+                            case "tourner":
+                                myTortue.tourner();
+                                break;
+                            case "ecrire":
+                                myTortue.tracer(true);
+                                break;
+                            case "npecrire":
+                                myTortue.tracer(false);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+        }
         else {
             if (myTortue == myGraphicTurtle)
                 myTortue = myColorTurtle;
@@ -54,6 +95,8 @@ public class VueCreaExercice extends JFrame implements ActionListener {
         panelCode = new JPanel();
         barreBas = new JPanel();
         panelDessinProf = Tortue.Canvas.getCanvasPanel();
+        lastAction=new Stack();
+        
         
         btValider = new JButton("Valider");
         btUndo = new JButton("Annuler");
@@ -76,11 +119,7 @@ public class VueCreaExercice extends JFrame implements ActionListener {
             }
         });
         
-        btUndo.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //recommencer
-            }
-        });    
+        btUndo.addActionListener(this);    
         
         btRetourMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
