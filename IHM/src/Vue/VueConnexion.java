@@ -42,8 +42,10 @@ public class VueConnexion extends JFrame {
     private JPanel myPanelText;
     private JLabel labelTortueImage; 
     protected JFrame myFrameWelcome;
+    private ControleurConnexion controlConnexion; 
 
     public VueConnexion() {
+        controlConnexion = new ControleurConnexion(); 
         myFrameWelcome = new JFrame("Welcome");
         myFrameWelcome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myFrameWelcome.setPreferredSize(new Dimension(750, 560));
@@ -73,8 +75,8 @@ public class VueConnexion extends JFrame {
                     System.out.println(idPersonneField); 
                     System.out.println(mdpField); 
 
-                    if (ControleurConnexion.connexion(idPersonneField, mdpField)==true){
-                        if (ControleurConnexion.getProf()){
+                    if (controlConnexion.connexion(idPersonneField, mdpField)==true){
+                        if (controlConnexion.getProf()){
                             VueProfHome vueProfHome = new VueProfHome(idPersonneField, myFrameWelcome);
                             //ferme la fenetre de connexion
                             System.out.println("connexion reussie");
