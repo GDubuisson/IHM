@@ -23,7 +23,7 @@ public class Personne {
     private String Prenom;
     private String Mdp;
     private boolean Enseignant;
-    private String Classe;
+    private int Classe;
     
     private ArrayList<Personne> listP;
 
@@ -31,13 +31,20 @@ public class Personne {
     }
     
     
-    public Personne(int idPersonne, String Nom, String Prenom, String Classe, String Mdp, boolean Enseignant) {
+    public Personne(int idPersonne, String Nom, String Prenom, int Classe, String Mdp, boolean Enseignant) {
         this.idPersonne = idPersonne;
         this.Nom = Nom;
         this.Prenom = Prenom;
         this.Classe = Classe;
         this.Mdp = Mdp;
         this.Enseignant = Enseignant;
+    }
+    
+    public Personne(int idPersonne, String Nom, String Prenom, int Classe) {
+        this.idPersonne = idPersonne;
+        this.Nom = Nom;
+        this.Prenom = Prenom;
+        this.Classe = Classe;
     }
 
     public int getIdPersonne() {
@@ -64,11 +71,11 @@ public class Personne {
         this.Prenom = Prenom;
     }
 
-    public String getClasse() {
+    public int getClasse() {
         return Classe;
     }
 
-    public void setClasse(String Classe) {
+    public void setClasse(int Classe) {
         this.Classe = Classe;
     }
 

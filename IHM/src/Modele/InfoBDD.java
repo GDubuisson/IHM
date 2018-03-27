@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class InfoBDD {
     
-    private static ArrayList<Personne> listP;
+    private static ArrayList<Personne> listP,enseignantClasse;
     private static ArrayList<Personne> listE;
     private static ArrayList<Classe> listC;
     private static ArrayList<Personne> listEleveClasse;
@@ -40,7 +40,7 @@ public class InfoBDD {
                 int idP = rs.getInt("IdPersonne");
                 String NomP = rs.getString("Nom");
                 String  PrenomP = rs.getString("Prenom"); 
-                String Classe = rs.getString("IdClasse");
+                int Classe = rs.getInt("IdClasse");
                 String Mdp = rs.getString("Mdp");
                 boolean Enseignant = rs.getBoolean("Enseignant");
 
@@ -64,7 +64,7 @@ public class InfoBDD {
         Connection recon = connect();
         Statement stmt = null;
        
-        String sql = "select IdPersonne, Nom, Prenom, IdClasse, Mdp, Enseignant from Personne";
+        String sql = "select IdPersonne, Nom, Prenom, IdClasse, Mdp, Enseignant from Personne where Enseignant=0";
         
         
         
@@ -76,7 +76,7 @@ public class InfoBDD {
                 int idP = rs.getInt("IdPersonne");
                 String NomP = rs.getString("Nom");
                 String  PrenomP = rs.getString("Prenom"); 
-                String Classe = rs.getString("Classe");
+                int Classe = rs.getInt("IdClasse");
                 String Mdp = rs.getString("Mdp");
                 boolean Enseignant = rs.getBoolean("Enseignant");
 
@@ -116,32 +116,61 @@ public class InfoBDD {
         }
         return listC;
     }
-   /* public static ArrayList<Personne> getListEleveClasse (String nomClasse) {
+    
+    public static ArrayList<Personne> getEnseignantClasse (int idClasse) {
         
-        listEleveClasse = new ArrayList<Personne>();
+        enseignantClasse = new ArrayList<Personne>();
         
         Connection recon = connect();
         Statement stmt = null;            
-        String sql = "select IdPersonne, Nom, Prenom, Classe from Personne where Classe="+'"'+niveau+'"';
+        String sql = "select IdPersonne, Nom, Prenom, IdClasse from Personne where Enseignant=1 and IdClasse="+'"'+idClasse+'"';
 
         try{
             stmt = recon.createStatement();
 
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                int idEleve = rs.getInt("IdEleve");
-                String  nomEleve = rs.getString("NomEleve"); 
-                String  prenomEleve = rs.getString("PrenomEleve");
+                int idEnseignant = rs.getInt("IdPersonne");
+                String  nomEnseignant = rs.getString("Nom"); 
+                String  prenomEnseignant = rs.getString("Prenom");
                 
                 
-               Eleve eleve = new Eleve(idEleve,nomEleve,prenomEleve,niveau);
-               listeEleveClasse.add(eleve);                          
+               Personne enseignant = new Personne(idEnseignant,nomEnseignant,nomEnseignant,idClasse);
+               enseignantClasse.add(enseignant);                          
             }
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return listeEleveClasse;
-    } */
+        return enseignantClasse;
+    } 
+    
+    public static ArrayList<Personne> getListEleveClasse (int idClasse) {
+        
+        listEleveClasse = new ArrayList<Personne>();
+        
+        Connection recon = connect();
+        Statement stmt = null;            
+        String sql = "select IdPersonne, Nom, Prenom, IdClasse from Personne where Enseignant=0 and IdClasse="+'"'+idClasse+'"';
+
+        try{
+            stmt = recon.createStatement();
+
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int idEleve = rs.getInt("IdPersonne");
+                String  nomEleve = rs.getString("Nom"); 
+                String  prenomEleve = rs.getString("Prenom");
+                
+                
+               Personne enseignant = new Personne(idEleve,nomEleve,prenomEleve,idClasse);
+               listEleveClasse.add(enseignant);                          
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return listEleveClasse;
+    } 
     
 }
