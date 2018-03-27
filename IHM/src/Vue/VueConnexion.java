@@ -37,16 +37,18 @@ public class VueConnexion extends JFrame {
     private JButton connectButton;
     private JTextField idPersonne;
     private JTextField mdp;
-    private JLabel idLabel;
-    private JLabel mdpLabel;
+    private JLabel idLabel, mdpLabel;  
     private JPanel myPanel1;
     private JPanel myPanelText;
+    private JLabel labelTortueImage; 
     protected JFrame myFrameWelcome;
 
     public VueConnexion() {
         myFrameWelcome = new JFrame("Welcome");
         myFrameWelcome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        myFrameWelcome.setPreferredSize(new Dimension(750, 560));
+        
+        labelTortueImage = new JLabel(new ImageIcon(this.getClass().getResource("image/tortue_image.png")), JLabel.CENTER);
         myPanel1 = new JPanel();
         myPanelText = new JPanel();
         myPanelText.setLayout(new GridLayout(2,2));
@@ -99,9 +101,10 @@ public class VueConnexion extends JFrame {
         myPanelText.add(mdpLabel); 
         myPanelText.add(mdp); 
         
-        myPanel1.setLayout(new BorderLayout());
-        myPanel1.add(myPanelText, BorderLayout.NORTH);
-        myPanel1.add(connectButton, BorderLayout.CENTER);
+        myPanel1.setLayout(new GridLayout(3,1));
+        myPanel1.add(labelTortueImage); 
+        myPanel1.add(myPanelText);
+        myPanel1.add(connectButton);
 
         //connectButton.addActionListener(new GestionAction(this, "connexion"));
         myFrameWelcome.add(myPanel1);
