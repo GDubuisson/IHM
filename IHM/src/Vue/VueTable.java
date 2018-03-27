@@ -5,9 +5,10 @@
  */
 package Vue;
 
-//import Modele.Classe;
-//import Modele.Eleve;
-//import Controleur.ControleurTable;
+import Modele.Classe;
+import Modele.Personne;
+import Controleur.ControleurTable;
+import Modele.InfoBDD;
 import java.util.*;
 import javax.swing.*;
 
@@ -17,7 +18,7 @@ import javax.swing.table.AbstractTableModel;
  * Classe permettant de gérer l'affichage de la JTable
  *
  * @author grp5
- *//*
+ */
 public class VueTable extends JScrollPane {
 
     private JTable table;
@@ -29,11 +30,11 @@ public class VueTable extends JScrollPane {
      * Constructeur de la table VueTable
      *
      * @param vue
-     *//*
+     */
     public VueTable(VueTree vue) {
-        Classe classe = new Classe("", "");
+        Classe classe = new Classe(0, "");
         this.vue = vue;
-        modeleTable = new ModeleStatique(classe);
+        modeleTable = new ModeleStatique();
 
         table = new JTable(modeleTable);
         table.setAutoCreateRowSorter(true); //trie automatique des cellules
@@ -48,9 +49,10 @@ public class VueTable extends JScrollPane {
      * Méthode permettant de modifier les informations de la classe
      *
      * @param classe
-     *//*
+     */
     public void setData(Classe classe) {
-        modeleTable = new ModeleStatique(classe);
+        
+        modeleTable = new ModeleStatique();
         table = new JTable(modeleTable);
         table.setAutoCreateRowSorter(true);
         table.setCellSelectionEnabled(true);
@@ -60,32 +62,35 @@ public class VueTable extends JScrollPane {
         this.setViewportView(table);
         listSelectionModel = table.getSelectionModel();
         listSelectionModel.addListSelectionListener(new ControleurTable(table, classe, vue));
-        for (Eleve el : classe.getEleves()) {
+        /*ArrayList<Classe> listEleveClasse = InfoBDD.getListEleveClasse();
+        for (Personne pers : classe.getEleves()) {
             System.out.println(el.getNom());
             this.modeleTable.fireTableDataChanged();
-        }
+        }*/
     }
 
     /**
      * Classe permettant la gestion de l'affichage la JTable
-     *//*
+     */
     public class ModeleStatique extends AbstractTableModel {
 
-        private ArrayList<Eleve> eleves;
+        private ArrayList<Personne> personne;
 
         /**
          * Constructeur de la classe ModeleStatique
          *
          * @param classe
-         *//*
-        public ModeleStatique(Classe classe) {
-            eleves = classe.getEleves();
+         */
+        public ModeleStatique() {
+            for (Classe classeActive : InfoBDD.getListClasse()){
+                 System.out.println(InfoBDD.getListEleveClasse(classeActive.getIdClasse()));
+            }
         }
 
         private final String[] entetes = {"ID", "Nom", "Prénom", "Garçon/Fille", "Âge"};
 
         public int getRowCount() {
-            return eleves.size();
+            return 0; //classeActive.size();
         }
 
         public int getColumnCount() {
@@ -99,15 +104,11 @@ public class VueTable extends JScrollPane {
         public Object getValueAt(int rowIndex, int columnIndex) {
             switch (columnIndex) {
                 case 0:
-                    return eleves.get(rowIndex).getID();
+                    return personne.get(rowIndex).getIdPersonne();
                 case 1:
-                    return eleves.get(rowIndex).getPrenom();
+                    return personne.get(rowIndex).getPrenom();
                 case 2:
-                    return eleves.get(rowIndex).getNom();
-                case 3:
-                    return eleves.get(rowIndex).getSexe();
-                case 4:
-                    return eleves.get(rowIndex).getAge();
+                    return personne.get(rowIndex).getNom();
                 default:
                     throw new IllegalArgumentException();
             }
@@ -118,9 +119,9 @@ public class VueTable extends JScrollPane {
      * Accesseur à la JTable
      *
      * @return
-     *//*
+     */
     public JTable getTable() {
         return this.table;
     }
 }
-*/
+
