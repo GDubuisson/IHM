@@ -32,7 +32,7 @@ public class VueProfHome {
     private JButton result;
     private JPanel myPanel2;
     private JPanel myPanelButton;
-    private JLabel nomProf; 
+    private JLabel nom_prenomProf; 
     protected JFrame myFrameProfHome;
     private String nom, prenom; 
 
@@ -75,9 +75,11 @@ public class VueProfHome {
         myPanelButton.add(evaluer); 
         myPanelButton.add(result); 
         
-        nomProf = new JLabel(prenom); 
+        String nom_prenom = (prenom+" "+nom);
+        nom_prenomProf = new JLabel(nom_prenom);
+        
         myPanel2.setLayout(new BorderLayout());
-        myPanel2.add(nomProf, BorderLayout.NORTH);
+        myPanel2.add(nom_prenomProf, BorderLayout.NORTH);
         myPanel2.add(myPanelButton, BorderLayout.CENTER);
 
         //connectButton.addActionListener(new GestionAction(this, "connexion"));
