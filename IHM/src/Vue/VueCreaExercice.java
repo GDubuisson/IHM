@@ -11,80 +11,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.util.*;
+import Controleur.ControleurExercice;
 
 /**
  *
  * @author Guillaume
  */
-public class VueCreaExercice extends JFrame implements ActionListener {
+public class VueCreaExercice extends JFrame {
     
     private JButton btValider, btUndo,btEffacer, btRetourMenu, btAvancer, btTourner, btEcrire, btNePasEcrire,btSelTortue;
     private JPanel barreHaut, panelPrincip, panelCode, barreBas, panelDessinProf;
     private Stack<String> lastAction;
     private TortueG myTortue,myGraphicTurtle,myColorTurtle;
     
-     public void actionPerformed (ActionEvent ae) {
-        if (ae.getSource() == btAvancer) {
-            myTortue.avancer();
-            lastAction.add("avancer");
-        }
-        else if (ae.getSource() == btEffacer) {
-            while(!lastAction.empty()){
-                lastAction.pop();
-            }
-            myTortue.reset();}
-        else if (ae.getSource() == btTourner){
-            myTortue.tourner();
-            lastAction.add("tourner");
-        }
-        else if (ae.getSource() == btEcrire){
-            myTortue.tracer(true);
-            lastAction.add("ecrire");
-        }
-        else if (ae.getSource()== btNePasEcrire){
-            myTortue.tracer(false);
-            lastAction.add("npecrire");
-        }
-        else if (ae.getSource()==btUndo) {
-            if (!lastAction.empty()) {
-                lastAction.pop();
-                myTortue.reset();
-                for (int i = 0; i < lastAction.size(); i++) {
-                    if (null == lastAction.elementAt(i)) {
-                        break;
-                    } else {
-                        switch (lastAction.elementAt(i)) {
-                            case "avancer":
-                                myTortue.avancer();
-                                break;
-                            case "tourner":
-                                myTortue.tourner();
-                                break;
-                            case "ecrire":
-                                myTortue.tracer(true);
-                                break;
-                            case "npecrire":
-                                myTortue.tracer(false);
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-            }
-        } else if (ae.getSource()==btRetourMenu) {
-            
-        } else if (ae.getSource()==btValider) {
-            
-        }
-        else {
-            if (myTortue == myGraphicTurtle)
-                myTortue = myColorTurtle;
-            else
-                myTortue = myGraphicTurtle;
-            myTortue.reset();
-            }           
-    }
+     
     
     public VueCreaExercice (){
         myGraphicTurtle = new TortueG();
@@ -122,7 +62,7 @@ public class VueCreaExercice extends JFrame implements ActionListener {
             }
         });
         
-        btUndo.addActionListener(this);    
+        //btUndo.addActionListener(this);    
         
         btRetourMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -130,13 +70,13 @@ public class VueCreaExercice extends JFrame implements ActionListener {
             }
         });
         
-        btEffacer.addActionListener(this);
+        //btEffacer.addActionListener(this);
         
-        btAvancer.addActionListener(this);
-        btTourner.addActionListener(this);
-        btEcrire.addActionListener(this);
-        btNePasEcrire.addActionListener(this);
-        btSelTortue.addActionListener(this); 
+        //btAvancer.addActionListener(this);
+        //btTourner.addActionListener(this);
+        //btEcrire.addActionListener(this);
+        //btNePasEcrire.addActionListener(this);
+        //btSelTortue.addActionListener(this); 
         
         barreHaut.add(btValider);
         barreHaut.add(btUndo);
