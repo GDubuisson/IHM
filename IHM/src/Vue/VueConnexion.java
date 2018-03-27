@@ -62,41 +62,8 @@ public class VueConnexion extends JFrame {
         mdp.setColumns(10);
         myPanelText.add(mdp, BorderLayout.SOUTH);
 
-        connectButton = new JButton("Se connecter");
-        //int idPersonneField = Integer.parseInt(idPersonne.getText());
-        //String mdpField = mdp.getText();
-        connectButton.addActionListener(new ControleurConnexion(idPersonne,mdp, myFrameWelcome));
-/*        connectButton.addActionListener(new ActionListener (idPersonne.getText(),mdp.getText(), myFrameWelcome) {
-                public void actionPerformed (ActionEvent e) {
-                    //recupere les donnees de l'eleve
-                    int idPersonneField = Integer.parseInt(idPersonne.getText());
-                    String mdpField = mdp.getText();
-                    
-                    System.out.println(idPersonneField); 
-                    System.out.println(mdpField); 
-
-                    if (ControleurConnexion.connexion(idPersonneField, mdpField)==true){
-                        if (ControleurConnexion.getProf()){
-                            VueProfHome vueProfHome = new VueProfHome(idPersonneField, myFrameWelcome);
-                            //ferme la fenetre de connexion
-                            System.out.println("connexion reussie");
-                            dispose();
-                        }  
-                        else{
-                            VueEleveHome vueEleveHome = new VueEleveHome(idPersonneField);
-                            //ferme la fenetre de connexion
-                            System.out.println("connexion reussie");
-                            dispose();
-                        }
-                    }
-                    
-                    else{
-                        JOptionPane erreur_connexion;
-                        erreur_connexion = new JOptionPane();
-                        erreur_connexion.showMessageDialog(null, "Identifiant ou mot de passe incorrect", "Echec connexion", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }); */
+        connectButton = new JButton("Se connecter");    
+        connectButton.addActionListener(new ControleurConnexion(this));
          
         myPanelText.add(idLabel); 
         myPanelText.add(idPersonne); 
@@ -112,12 +79,13 @@ public class VueConnexion extends JFrame {
         myFrameWelcome.setVisible(true);
         myFrameWelcome.pack();
     }
-    public JTextField getIdPersonne(){
-        return idPersonne; 
+    public int getIdPersonneField(){
+        //return idPersonne; 
+        return Integer.parseInt(idPersonne.getText()); 
     }
     
-    public JTextField getMdp(){
-        return mdp; 
+    public String getMdpField(){
+        return mdp.getText(); 
     }
     public JFrame getFrame(){
         return myFrameWelcome; 

@@ -39,19 +39,19 @@ public class ControleurConnexion implements ActionListener{
    private boolean isProf;
    private int idPersonneField; 
    private String mdpField; 
-   private JFrame wint; 
+   private JFrame wint;
+   private VueConnexion currentVue;  
   
-   public ControleurConnexion(JTextField idPersonne, JTextField mdp, JFrame myFrameWelcome){
-    ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites
- idPersonneField = Integer.parseInt(idPersonne.getText());
-         mdpField = mdp.getText();    
-//idPersonneField = idPersonne;
-    //mdpField = mdp;
-    wint = myFrameWelcome; 
+   public ControleurConnexion(VueConnexion currentVue){
+    ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites  
+    this.currentVue = currentVue; 
+    wint = currentVue.getFrame(); 
    }
 
     @Override
 public void actionPerformed(ActionEvent ae) {
+    int idPersonneField = currentVue.getIdPersonneField();
+    String mdpField = currentVue.getMdpField();
     if (connexion(idPersonneField, mdpField)==true){
         if (getProf()){
             VueProfHome vueProfHome = new VueProfHome(idPersonneField, wint);
