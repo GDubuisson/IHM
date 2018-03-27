@@ -5,12 +5,15 @@
  */
 
 package Vue;
+import Modele.InfoBDD;
+import Modele.Personne;
 import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -31,11 +34,20 @@ public class VueProfHome {
     private JPanel myPanelButton;
     private JLabel nomProf; 
     protected JFrame myFrameProfHome;
+    private String nom, prenom; 
 
     public VueProfHome(int idProf,JFrame currentFrame) {
         myFrameProfHome = currentFrame; 
         myFrameProfHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites
+         
+        for (Personne personne : InfoBDD.getListPersonne()) {
+            if ((personne.getIdPersonne() == idProf)){
+              nom=personne.getNom(); 
+              prenom=personne.getPrenom(); 
+            }
+        } 
         
         myPanel2 = new JPanel();
         
@@ -63,7 +75,7 @@ public class VueProfHome {
         myPanelButton.add(evaluer); 
         myPanelButton.add(result); 
         
-        nomProf = new JLabel("nom prof"); 
+        nomProf = new JLabel(prenom); 
         myPanel2.setLayout(new BorderLayout());
         myPanel2.add(nomProf, BorderLayout.NORTH);
         myPanel2.add(myPanelButton, BorderLayout.CENTER);
