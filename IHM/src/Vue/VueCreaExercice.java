@@ -72,6 +72,10 @@ public class VueCreaExercice extends JFrame implements ActionListener {
                     }
                 }
             }
+        } else if (ae.getSource()==btRetourMenu) {
+            
+        } else if (ae.getSource()==btValider) {
+            
         }
         else {
             if (myTortue == myGraphicTurtle)
