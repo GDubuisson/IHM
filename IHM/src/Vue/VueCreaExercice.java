@@ -56,11 +56,7 @@ public class VueCreaExercice extends JFrame {
         panelPrincip.setLayout(new BorderLayout());
         panelCode.setPreferredSize(new Dimension(100, 100));
         
-        btValider.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //Valide
-            }
-        });
+    //btValider.addActionListener(new ControleurExercice(btValider,myTortue,lastAction));
         
         //btUndo.addActionListener(this);    
         
@@ -72,7 +68,7 @@ public class VueCreaExercice extends JFrame {
         
         //btEffacer.addActionListener(this);
         
-        //btAvancer.addActionListener(this);
+        btAvancer.addActionListener(new ControleurExercice("avancer", myTortue, lastAction));
         //btTourner.addActionListener(this);
         //btEcrire.addActionListener(this);
         //btNePasEcrire.addActionListener(this);

@@ -6,6 +6,8 @@
 package Controleur;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.*;
+import javax.swing.*;
 import java.util.*;
 import Tortue.*;
 
@@ -14,14 +16,26 @@ import Tortue.*;
  *
  * @author Guillaume
  */
-public class ControleurExercice {
+public class ControleurExercice implements ActionListener {
     
-    public ControleurExercice(TortueG myTortue, Stack<String> lastAction){
-    /*public void actionPerformed (ActionEvent ae) {
-        if (ae.getSource() == btAvancer) {
-            myTortue.avancer();
-            lastAction.add("avancer");
-        }
+    String nameB;
+    TortueG myTurtle;
+    Stack<String> lAction;
+    
+    public ControleurExercice(String nameButton, TortueG myTortue, Stack<String> lastAction){
+        nameB = nameButton;
+        myTurtle=myTortue;
+        lAction=lastAction;
+    };
+    
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+        myTurtle.avancer();
+    };
+    
+    /*public void avancer (TortueG myTortue) {
+        
+    }
         else if (ae.getSource() == btEffacer) {
             while(!lastAction.empty()){
                 lastAction.pop();
@@ -78,7 +92,7 @@ public class ControleurExercice {
                 myTortue = myGraphicTurtle;
             myTortue.reset();
             }           
-    }*/
-    
     }
+    
+    }*/
 }
