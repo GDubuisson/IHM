@@ -36,11 +36,13 @@ public class VueProfHome {
     private JLabel nom_prenomProf; 
     protected JFrame myFrameProfHome;
     private String nom, prenom; 
+    private int idProf; 
 
-    public VueProfHome(int idProf,JFrame currentFrame) {
+    public VueProfHome(int idPersonne,JFrame currentFrame) {
         myFrameProfHome = currentFrame; 
         myFrameProfHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        idProf = idPersonne; 
         ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites
          
         for (Personne personne : InfoBDD.getListPersonne()) {
@@ -79,7 +81,7 @@ public class VueProfHome {
         myPanel2.add(nom_prenomProf, BorderLayout.NORTH);
         myPanel2.add(myPanelButton, BorderLayout.CENTER);
 
-        //connectButton.addActionListener(new GestionAction(this, "connexion"));
+        
         myFrameProfHome.setContentPane(myPanel2);
         myFrameProfHome.repaint();
         myFrameProfHome.revalidate();
