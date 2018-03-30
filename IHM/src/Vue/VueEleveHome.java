@@ -29,10 +29,10 @@ public class VueEleveHome extends JFrame {
     private JPanel affichageIdentite,tableau,panelP;
             
             
-    public VueEleveHome(int idEleve) {
+    public VueEleveHome(int idEleve, JFrame currentFrame) {
         
 	
-    myFrameEleveHome = new JFrame("EleveHome");
+    myFrameEleveHome = currentFrame;
     myFrameEleveHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    
     affichageIdentite = new JPanel();

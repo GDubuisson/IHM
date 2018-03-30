@@ -59,7 +59,7 @@ public void actionPerformed(ActionEvent ae) {
             System.out.println("connexion reussie");
         }  
         else{
-            VueEleveHome vueEleveHome = new VueEleveHome(idPersonneField);
+            VueEleveHome vueEleveHome = new VueEleveHome(idPersonneField, wint);
             //ferme la fenetre de connexion
             System.out.println("connexion reussie");
         }
