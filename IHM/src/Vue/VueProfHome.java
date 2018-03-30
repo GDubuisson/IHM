@@ -56,16 +56,16 @@ public class VueProfHome {
         myPanelButton.setLayout(new GridLayout(4,0));
         
         nouvelExo= new JButton("Nouvel exercice");
-        nouvelExo.addActionListener(new ControleurEnseignant (myFrameProfHome,"creaExo"));
+        nouvelExo.addActionListener(new ControleurEnseignant (myFrameProfHome,"creaExo",idProf));
        
         modifExo= new JButton("Modifier exercice");
-        modifExo.addActionListener(new ControleurEnseignant (myFrameProfHome,"modifExo"));
+        modifExo.addActionListener(new ControleurEnseignant (myFrameProfHome,"modifExo",idProf));
         
         evaluer= new JButton("Evaluer");
-        evaluer.addActionListener(new ControleurEnseignant (myFrameProfHome,"evaluer"));
+        evaluer.addActionListener(new ControleurEnseignant (myFrameProfHome,"evaluer",idProf));
         
         result = new JButton("Résultats");
-        result.addActionListener(new ControleurEnseignant (myFrameProfHome,"resultats"));
+        result.addActionListener(new ControleurEnseignant (myFrameProfHome,"resultats",idProf));
         
         myPanelButton.add(nouvelExo); 
         myPanelButton.add(modifExo); 

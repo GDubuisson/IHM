@@ -28,10 +28,13 @@ public class ControleurEnseignant implements ActionListener{
     
    private JFrame wint; 
    private String nameButton; 
+   private int idProf; 
   
-   public ControleurEnseignant(JFrame currentFrame, String nameButton){
+   public ControleurEnseignant(JFrame currentFrame, String nameButton, int idProf){
     wint = currentFrame; 
     this.nameButton = nameButton; 
+    this.idProf = idProf; 
+    
    }
 
     @Override
