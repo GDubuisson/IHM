@@ -13,6 +13,7 @@ import Vue.VueEleveHome;
 import Vue.VueEvaluationTentative;
 import Vue.VueModificationExercice;
 import Vue.VueProfHome;
+import Vue.VueTable;
 import Vue.VueTree;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

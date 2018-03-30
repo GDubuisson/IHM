@@ -44,7 +44,7 @@ public class VueConnexion extends JFrame {
     protected JFrame myFrameWelcome;
 
     public VueConnexion() {
-        myFrameWelcome = new JFrame("Welcome");
+        myFrameWelcome = new JFrame("PROJET LOGO");
         myFrameWelcome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myFrameWelcome.setPreferredSize(new Dimension(750, 560));
         
