@@ -26,6 +26,12 @@ import Controleur.ControleurEnseignant;
  *
  * @author grp5
  */
+
+/**
+ * Classe permettant d'afficher la vue d'un professeur 
+ *
+ * @author grp5
+ */
 public class VueProfHome {
  private JButton nouvelExo;
     private JButton modifExo;

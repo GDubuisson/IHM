@@ -90,7 +90,7 @@ public class VueTable extends JScrollPane {
         private final String[] entetes = {"ID", "Nom", "Prénom", "Garçon/Fille", "Âge"};
 
         public int getRowCount() {
-            return 0; //classeActive.size();
+            return 2; //classeActive.size();
         }
 
         public int getColumnCount() {

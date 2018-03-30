@@ -22,8 +22,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Adèlounette
+ * Classe permettant de controler les boutons de la classe VueProfHome 
+ * @author grp_5
  */
 public class ControleurEnseignant implements ActionListener{
     
@@ -31,6 +31,11 @@ public class ControleurEnseignant implements ActionListener{
    private String nameButton; 
    private int idProf; 
   
+   /**
+ * constructeur de la classe 
+ * @param la frame pour ne pas avoir à ouvrir une nouvelle fenêtre, 
+ * le nom du boutton sur lequel on a cliqué et l'identifiant de la personne connectée 
+ */
    public ControleurEnseignant(JFrame currentFrame, String nameButton, int idProf){
     wint = currentFrame; 
     this.nameButton = nameButton; 
