@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import Controleur.ControleurEnseignant; 
 
 /**
  *
@@ -55,20 +56,16 @@ public class VueProfHome {
         myPanelButton.setLayout(new GridLayout(4,0));
         
         nouvelExo= new JButton("Nouvel exercice");
-        nouvelExo.addActionListener(new ActionListener () {
-            public void actionPerformed (ActionEvent e) {
-                VueCreaExercice nouvelExo =  new VueCreaExercice(); 
-            }
-        });
+        nouvelExo.addActionListener(new ControleurEnseignant (myFrameProfHome,"creaExo"));
+       
         modifExo= new JButton("Modifier exercice");
+        modifExo.addActionListener(new ControleurEnseignant (myFrameProfHome,"modifExo"));
+        
         evaluer= new JButton("Evaluer");
+        evaluer.addActionListener(new ControleurEnseignant (myFrameProfHome,"evaluer"));
+        
         result = new JButton("Résultats");
-        result.addActionListener(new ActionListener () {
-            public void actionPerformed (ActionEvent e) {
-                VueTree resultats =  new VueTree(); 
-                resultats.CreationTree();
-            }
-        });
+        result.addActionListener(new ControleurEnseignant (myFrameProfHome,"resultats"));
         
         myPanelButton.add(nouvelExo); 
         myPanelButton.add(modifExo); 
