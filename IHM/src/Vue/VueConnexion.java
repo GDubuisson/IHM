@@ -43,8 +43,16 @@ public class VueConnexion extends JFrame {
     private JLabel labelTortueImage; 
     protected JFrame myFrameWelcome;
 
+    /**
+    * Constructeur de la table VueConnexion
+    * Cette table permet aux utilisateurs de se connecter via un identifiant 
+    * qui lui est donné et un mot de passe qui correspond à son prénom
+    * Exemple d'un élève : id = 1 ; mot de passe = pauline 
+    * Exemple d'un professeur : id = 3 ; mot de passe = allan 
+    *
+    */
     public VueConnexion() {
-        myFrameWelcome = new JFrame("Welcome");
+        myFrameWelcome = new JFrame("PROJET LOGO");
         myFrameWelcome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myFrameWelcome.setPreferredSize(new Dimension(750, 560));
         
@@ -62,41 +70,8 @@ public class VueConnexion extends JFrame {
         mdp.setColumns(10);
         myPanelText.add(mdp, BorderLayout.SOUTH);
 
-        connectButton = new JButton("Se connecter");
-        //int idPersonneField = Integer.parseInt(idPersonne.getText());
-        //String mdpField = mdp.getText();
-        connectButton.addActionListener(new ControleurConnexion(idPersonne,mdp, myFrameWelcome));
-/*        connectButton.addActionListener(new ActionListener (idPersonne.getText(),mdp.getText(), myFrameWelcome) {
-                public void actionPerformed (ActionEvent e) {
-                    //recupere les donnees de l'eleve
-                    int idPersonneField = Integer.parseInt(idPersonne.getText());
-                    String mdpField = mdp.getText();
-                    
-                    System.out.println(idPersonneField); 
-                    System.out.println(mdpField); 
-
-                    if (ControleurConnexion.connexion(idPersonneField, mdpField)==true){
-                        if (ControleurConnexion.getProf()){
-                            VueProfHome vueProfHome = new VueProfHome(idPersonneField, myFrameWelcome);
-                            //ferme la fenetre de connexion
-                            System.out.println("connexion reussie");
-                            dispose();
-                        }  
-                        else{
-                            VueEleveHome vueEleveHome = new VueEleveHome(idPersonneField);
-                            //ferme la fenetre de connexion
-                            System.out.println("connexion reussie");
-                            dispose();
-                        }
-                    }
-                    
-                    else{
-                        JOptionPane erreur_connexion;
-                        erreur_connexion = new JOptionPane();
-                        erreur_connexion.showMessageDialog(null, "Identifiant ou mot de passe incorrect", "Echec connexion", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }); */
+        connectButton = new JButton("Se connecter");    
+        connectButton.addActionListener(new ControleurConnexion(this));
          
         myPanelText.add(idLabel); 
         myPanelText.add(idPersonne); 
@@ -112,12 +87,24 @@ public class VueConnexion extends JFrame {
         myFrameWelcome.setVisible(true);
         myFrameWelcome.pack();
     }
-    public JTextField getIdPersonne(){
-        return idPersonne; 
+    
+     /**
+     * Fonction permettant de retourner l'identifiant rentré par une personne 
+     *
+     * @return identifiant d'une personne 
+     */
+    public int getIdPersonneField(){
+        //return idPersonne; 
+        return Integer.parseInt(idPersonne.getText()); 
     }
     
-    public JTextField getMdp(){
-        return mdp; 
+     /**
+     * Fonction permettant de retourner le mot de passe rentré par une personne 
+     *
+     * @return le mot de passe d'une personne 
+     */
+    public String getMdpField(){
+        return mdp.getText(); 
     }
     public JFrame getFrame(){
         return myFrameWelcome; 

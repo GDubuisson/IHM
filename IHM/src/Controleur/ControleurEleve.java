@@ -5,41 +5,27 @@
  */
 package Controleur;
 
-import Modele.InfoBDD;
-import Modele.Personne;
-import Vue.VueConnexion;
 import Vue.VueCreaExercice;
-import Vue.VueEleveHome;
 import Vue.VueEvaluationTentative;
 import Vue.VueModificationExercice;
-import Vue.VueProfHome;
-import Vue.VueTable;
 import Vue.VueTree;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
- * Classe permettant de controler les boutons de la classe VueProfHome 
- * @author grp_5
+ *
+ * @author Adèlounette
  */
-public class ControleurEnseignant implements ActionListener{
-    
-   private JFrame wint; 
+public class ControleurEleve implements ActionListener{
+ private JFrame wint; 
    private String nameButton; 
-   private int idProf; 
+   private int idEleve; 
   
-   /**
- * constructeur de la classe 
- * @param la frame pour ne pas avoir à ouvrir une nouvelle fenêtre, 
- * le nom du boutton sur lequel on a cliqué et l'identifiant de la personne connectée 
- */
-   public ControleurEnseignant(JFrame currentFrame, String nameButton, int idProf){
+   public ControleurEleve(JFrame currentFrame, String nameButton, int idPersonne){
     wint = currentFrame; 
     this.nameButton = nameButton; 
-    this.idProf = idProf; 
+    this.idEleve = idPersonne; 
     
    }
 
@@ -66,6 +52,5 @@ public void actionPerformed(ActionEvent ae) {
         default:
                 break;
     }
-}
-    
+}    
 }

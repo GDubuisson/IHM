@@ -1,22 +1,14 @@
 package Vue;
 
 import Modele.*;
+import controleur.ControleurTree;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
-
-/*
-import Modele.Classe;
-import Modele.Eleve;
-import java.awt.*;
-import javax.swing.*;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreeSelectionModel;
-import controleur.ControleurSave;
-import controleur.ControleurTree;
-import Modele.*;
 
 /**
  * Classe permettant l'affichage de l'interface.
@@ -29,12 +21,18 @@ public class VueTree extends JFrame {
 	/*private JSplitPane splitPane;*/
         private final JFrame Interface = new JFrame();
 	private JTree tree;
+        private VueTable viewTable;
+        
         private Personne persoSelectionne;
         private Classe classeSelectionnee;
 	private DefaultMutableTreeNode racine;
         private Personne personneActive;
         private Classe classeActive;
 
+        private JPanel panelEleve;
+        private JLabel labelNomEleve;
+        
+        
 	// create the frame
 	public VueTree() {
             
@@ -47,6 +45,11 @@ public class VueTree extends JFrame {
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.setVisible(true);
             this.setPreferredSize(new Dimension(200,200));
+            viewTable = new VueTable(this);
+            
+            tree.addTreeSelectionListener(new ControleurTree(this, this.tree));
+            
+            
             
         }
         
@@ -58,10 +61,8 @@ public class VueTree extends JFrame {
                 for (Personne p : InfoBDD.getListEleveClasse(classe.getIdClasse())){
                     DefaultMutableTreeNode noeudE = new DefaultMutableTreeNode (p.getNom() + " " + p.getPrenom());
                     noeudC.add(noeudE);    
-                }   
-
-            }
-            
+                }  
+            }   
         }
         
         public void controllerJTreeCall(Object selectedNode){

@@ -20,8 +20,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import Controleur.ControleurEnseignant; 
 
 /**
+ *
+ * @author grp5
+ */
+
+/**
+ * Classe permettant d'afficher la vue d'un professeur 
  *
  * @author grp5
  */
@@ -35,11 +42,13 @@ public class VueProfHome {
     private JLabel nom_prenomProf; 
     protected JFrame myFrameProfHome;
     private String nom, prenom; 
+    private int idProf; 
 
-    public VueProfHome(int idProf,JFrame currentFrame) {
+    public VueProfHome(int idPersonne,JFrame currentFrame) {
         myFrameProfHome = currentFrame; 
         myFrameProfHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        idProf = idPersonne; 
         ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites
          
         for (Personne personne : InfoBDD.getListPersonne()) {
@@ -55,20 +64,16 @@ public class VueProfHome {
         myPanelButton.setLayout(new GridLayout(4,0));
         
         nouvelExo= new JButton("Nouvel exercice");
-        nouvelExo.addActionListener(new ActionListener () {
-            public void actionPerformed (ActionEvent e) {
-                VueCreaExercice nouvelExo =  new VueCreaExercice(); 
-            }
-        });
+        nouvelExo.addActionListener(new ControleurEnseignant (myFrameProfHome,"creaExo",idProf));
+       
         modifExo= new JButton("Modifier exercice");
+        modifExo.addActionListener(new ControleurEnseignant (myFrameProfHome,"modifExo",idProf));
+        
         evaluer= new JButton("Evaluer");
+        evaluer.addActionListener(new ControleurEnseignant (myFrameProfHome,"evaluer",idProf));
+        
         result = new JButton("Résultats");
-        result.addActionListener(new ActionListener () {
-            public void actionPerformed (ActionEvent e) {
-                VueTree resultats =  new VueTree(); 
-                resultats.CreationTree();
-            }
-        });
+        result.addActionListener(new ControleurEnseignant (myFrameProfHome,"resultats",idProf));
         
         myPanelButton.add(nouvelExo); 
         myPanelButton.add(modifExo); 
@@ -82,7 +87,7 @@ public class VueProfHome {
         myPanel2.add(nom_prenomProf, BorderLayout.NORTH);
         myPanel2.add(myPanelButton, BorderLayout.CENTER);
 
-        //connectButton.addActionListener(new GestionAction(this, "connexion"));
+        
         myFrameProfHome.setContentPane(myPanel2);
         myFrameProfHome.repaint();
         myFrameProfHome.revalidate();

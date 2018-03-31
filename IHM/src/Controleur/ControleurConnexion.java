@@ -29,29 +29,26 @@ import javax.swing.JTextField;
 
 
 /**
- *
+ * Classe permettant de controler les boutons de la VueConnexion 
  * @author grp5 
  */
-
-
-  
 public class ControleurConnexion implements ActionListener{
    private boolean isProf;
    private int idPersonneField; 
    private String mdpField; 
-   private JFrame wint; 
+   private JFrame wint;
+   private VueConnexion currentVue;  
   
-   public ControleurConnexion(JTextField idPersonne, JTextField mdp, JFrame myFrameWelcome){
-    ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites
- idPersonneField = Integer.parseInt(idPersonne.getText());
-         mdpField = mdp.getText();    
-//idPersonneField = idPersonne;
-    //mdpField = mdp;
-    wint = myFrameWelcome; 
+   public ControleurConnexion(VueConnexion currentVue){
+    ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites  
+    this.currentVue = currentVue; 
+    wint = currentVue.getFrame(); 
    }
 
     @Override
 public void actionPerformed(ActionEvent ae) {
+    int idPersonneField = currentVue.getIdPersonneField();
+    String mdpField = currentVue.getMdpField();
     if (connexion(idPersonneField, mdpField)==true){
         if (getProf()){
             VueProfHome vueProfHome = new VueProfHome(idPersonneField, wint);
@@ -59,7 +56,7 @@ public void actionPerformed(ActionEvent ae) {
             System.out.println("connexion reussie");
         }  
         else{
-            VueEleveHome vueEleveHome = new VueEleveHome(idPersonneField);
+            VueEleveHome vueEleveHome = new VueEleveHome(idPersonneField, wint);
             //ferme la fenetre de connexion
             System.out.println("connexion reussie");
         }
@@ -71,7 +68,11 @@ public void actionPerformed(ActionEvent ae) {
          }
 }
 
-   
+/**
+ * Fonction permettant de voir si l'identifiant et le mot de passe correspondent à une personne de la base de donnée  
+ *
+ * @return un booléen permenttant de savoir si la personne a été trouvée et si l'on peut se connecter 
+ */
    public boolean connexion (int idPersonne, String mdp){        
         for (Personne personne : InfoBDD.getListPersonne()) {
             if ((personne.getIdPersonne() == idPersonne) && (personne.getMdp().equals(mdp))){
@@ -82,7 +83,12 @@ public void actionPerformed(ActionEvent ae) {
         } 
         return(false);
     }
-    
+   
+/**
+* Fonction permettant de savoir si une personne est un professeur  
+*
+* @return un booléen permettant de savoir si une personne est un professeur  
+*/
    public boolean getProf(){
        return isProf; 
    }
