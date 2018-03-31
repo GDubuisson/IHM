@@ -1,7 +1,30 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *-----------------------------------------------------------------------------
+ *L'accueil élève est composé d’un tableau qui liste tous les exercices.
+ *Il y a 3 colonnes : Une colonne identifiant l’exercice, une colonne score 
+ *(acquis/en cours d’acquisition/ non acquis), et une colonne nombre d’essai.
+ *Une couleur Bleue apparaît sur les exercices non effectués, une couleur verte
+ *sur les exercices effectué réussi, et une couleur rouge sur les exercice 
+ *effectué non réussi. En cliquant sur l'identifiant d’un exercice on a alors 
+ *accès au plan de travail de résolution d’exercice
+ *Si l’exercice a déjà été tenté, une interface avec le dessin du professeur,
+ *le dessin fait par l’élève et le code s’affichent. L’élève à la possibilité 
+ *de cliquer sur un bouton pour refaire l’exercice. Ce bouton emmène au plan de 
+ *travail.
+ *-----------------------------------------------------------------------------
+ *La vue eleve 
+ *une entête comprenant :
+ *                      - Le nom et le prenom de l'eleve
+ *                      -un bouton quitter sur la droite
+ *un tableau possédant 3 collones et un nombre de ligne non défini:
+ *                  
+ *                      -une colone Nom exercice
+ *                      -une colone Score
+ *                      -une colone nombre d'essai
+ *-----------------------------------------------------------------------------
+ * 27:03            :   Besoin de connexion BDD et Besoin de JTABLE
+ *                      Passer les ActionListener dans le controleur
+ *-----------------------------------------------------------------------------
  */
 package Vue;
 
