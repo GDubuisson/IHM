@@ -29,12 +29,9 @@ import javax.swing.JTextField;
 
 
 /**
- *
+ * Classe permettant de controler les boutons de la VueConnexion 
  * @author grp5 
  */
-
-
-  
 public class ControleurConnexion implements ActionListener{
    private boolean isProf;
    private int idPersonneField; 
@@ -59,7 +56,7 @@ public void actionPerformed(ActionEvent ae) {
             System.out.println("connexion reussie");
         }  
         else{
-            VueEleveHome vueEleveHome = new VueEleveHome(idPersonneField);
+            VueEleveHome vueEleveHome = new VueEleveHome(idPersonneField, wint);
             //ferme la fenetre de connexion
             System.out.println("connexion reussie");
         }
@@ -71,7 +68,11 @@ public void actionPerformed(ActionEvent ae) {
          }
 }
 
-   
+/**
+ * Fonction permettant de voir si l'identifiant et le mot de passe correspondent à une personne de la base de donnée  
+ *
+ * @return un booléen permenttant de savoir si la personne a été trouvée et si l'on peut se connecter 
+ */
    public boolean connexion (int idPersonne, String mdp){        
         for (Personne personne : InfoBDD.getListPersonne()) {
             if ((personne.getIdPersonne() == idPersonne) && (personne.getMdp().equals(mdp))){
@@ -82,7 +83,12 @@ public void actionPerformed(ActionEvent ae) {
         } 
         return(false);
     }
-    
+   
+/**
+* Fonction permettant de savoir si une personne est un professeur  
+*
+* @return un booléen permettant de savoir si une personne est un professeur  
+*/
    public boolean getProf(){
        return isProf; 
    }

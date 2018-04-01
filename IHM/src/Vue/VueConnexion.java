@@ -43,8 +43,16 @@ public class VueConnexion extends JFrame {
     private JLabel labelTortueImage; 
     protected JFrame myFrameWelcome;
 
+    /**
+    * Constructeur de la table VueConnexion
+    * Cette table permet aux utilisateurs de se connecter via un identifiant 
+    * qui lui est donné et un mot de passe qui correspond à son prénom
+    * Exemple d'un élève : id = 1 ; mot de passe = pauline 
+    * Exemple d'un professeur : id = 3 ; mot de passe = allan 
+    *
+    */
     public VueConnexion() {
-        myFrameWelcome = new JFrame("Welcome");
+        myFrameWelcome = new JFrame("PROJET LOGO");
         myFrameWelcome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myFrameWelcome.setPreferredSize(new Dimension(750, 560));
         
@@ -79,11 +87,22 @@ public class VueConnexion extends JFrame {
         myFrameWelcome.setVisible(true);
         myFrameWelcome.pack();
     }
+    
+     /**
+     * Fonction permettant de retourner l'identifiant rentré par une personne 
+     *
+     * @return identifiant d'une personne 
+     */
     public int getIdPersonneField(){
         //return idPersonne; 
         return Integer.parseInt(idPersonne.getText()); 
     }
     
+     /**
+     * Fonction permettant de retourner le mot de passe rentré par une personne 
+     *
+     * @return le mot de passe d'une personne 
+     */
     public String getMdpField(){
         return mdp.getText(); 
     }
