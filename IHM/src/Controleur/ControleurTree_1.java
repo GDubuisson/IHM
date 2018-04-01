@@ -12,17 +12,17 @@ import javax.swing.tree.DefaultMutableTreeNode;
  *
  * @author grp5
  */
-public class ControleurTree implements TreeSelectionListener {
+public class ControleurTree_1 implements TreeSelectionListener {
 
 	private VueTree vue;
 	private JTree tree;
 
-	public ControleurTree(VueTree vue, JTree tree) {
+	public ControleurTree_1(VueTree vue, JTree tree) {
 		this.vue = vue;
 		this.tree = tree;
 	}
         
-        public ControleurTree(JTree tree) {
+        public ControleurTree_1(JTree tree) {
 		this.tree = tree;
 	}
 
