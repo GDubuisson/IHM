@@ -21,77 +21,110 @@ public class ControleurExercice implements ActionListener {
     String nameB;
     TortueG myTurtle;
     Stack<String> lAction;
+    TortueG graphicTurtle;
+    int tTortue;
     
-    public ControleurExercice(String nameButton, TortueG myTortue, Stack<String> lastAction){
+    public ControleurExercice(String nameButton, TortueG myTortue, TortueG myTurtle2, Stack<String> lastAction){
         nameB = nameButton;
         myTurtle=myTortue;
         lAction=lastAction;
+        graphicTurtle = myTurtle2;
     };
     
         @Override
         public void actionPerformed(ActionEvent ae) {
-        myTurtle.avancer();
-    };
-    
-    /*public void avancer (TortueG myTortue) {
-        
-    }
-        else if (ae.getSource() == btEffacer) {
-            while(!lastAction.empty()){
-                lastAction.pop();
-            }
-            myTortue.reset();}
-        else if (ae.getSource() == btTourner){
-            myTortue.tourner();
-            lastAction.add("tourner");
-        }
-        else if (ae.getSource() == btEcrire){
-            myTortue.tracer(true);
-            lastAction.add("ecrire");
-        }
-        else if (ae.getSource()== btNePasEcrire){
-            myTortue.tracer(false);
-            lastAction.add("npecrire");
-        }
-        else if (ae.getSource()==btUndo) {
-            if (!lastAction.empty()) {
-                lastAction.pop();
-                myTortue.reset();
-                for (int i = 0; i < lastAction.size(); i++) {
-                    if (null == lastAction.elementAt(i)) {
-                        break;
-                    } else {
-                        switch (lastAction.elementAt(i)) {
-                            case "avancer":
-                                myTortue.avancer();
+            if (nameB != null) switch (nameB){
+                case "Valider":{
+                    break;
+                }
+                case "Annuler":{
+                    if (!lAction.empty()) {
+                        lAction.pop();
+                        System.out.println("1");
+                        myTurtle.reset();
+                        for (int i = 0; i < lAction.size(); i++) {
+                            System.out.println("2");
+                            if (null == lAction.elementAt(i)) {
+                                System.out.println("3");
                                 break;
-                            case "tourner":
-                                myTortue.tourner();
-                                break;
-                            case "ecrire":
-                                myTortue.tracer(true);
-                                break;
-                            case "npecrire":
-                                myTortue.tracer(false);
-                                break;
-                            default:
-                                break;
+                            } else {
+                                switch (lAction.elementAt(i)) {
+                                    case "avancer":
+                                        System.out.println("4");
+                                        myTurtle.avancer();
+                                        break;
+                                    case "tourner":
+                                        System.out.println("5");
+                                        myTurtle.tourner();
+                                        break;
+                                    case "ecrire":
+                                        System.out.println("6");
+                                        myTurtle.tracer(true);
+                                        break;
+                                    case "npecrire":
+                                        System.out.println("7");
+                                        myTurtle.tracer(false);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
                         }
                     }
                 }
+                case "Effacer":{
+                    while(!lAction.empty()){
+                    lAction.pop();
+                }
+                    myTurtle.reset();
+                }
+                case "Retour au menu": {
+                    break;
+                }
+                case "Avancer": {
+                    myTurtle.avancer();
+                    lAction.add("avancer");
+                    break;
+                }
+                case "Tourner": {
+                    myTurtle.tourner();
+                    lAction.add("tourner");
+                    break;
+                }
+                case "Ecrire": {
+                    myTurtle.tracer(true);
+                    lAction.add("ecrire");
+                    break;
+                }
+                case "Ne pas ecrire": {
+                    myTurtle.tracer(false);
+                    lAction.add("npecrire");
+                    break;
+                }
+                case "Selectionner autre tortue":{
+                    if (myTurtle != graphicTurtle) {
+                        myTurtle = graphicTurtle;
+                        break;}
+                    else
+                        break;
+                    }
+                default:
+                    break;
             }
+            for (int i = 0; i < lAction.size(); i++) {
+                System.out.println(lAction.elementAt(i));
+            }
+        };
+    
+    /*else if (ae.getSource()==btUndo) {
+            
         } else if (ae.getSource()==btRetourMenu) {
             
         } else if (ae.getSource()==btValider) {
             
         }
         else {
-            if (myTortue == myGraphicTurtle)
-                myTortue = myColorTurtle;
-            else
-                myTortue = myGraphicTurtle;
-            myTortue.reset();
-            }           
+                       
     }
     
     }*/

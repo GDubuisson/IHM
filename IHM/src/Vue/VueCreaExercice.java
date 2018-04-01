@@ -68,11 +68,15 @@ public class VueCreaExercice extends JFrame {
         
         //btEffacer.addActionListener(this);
         
-        btAvancer.addActionListener(new ControleurExercice("avancer", myTortue, lastAction));
-        //btTourner.addActionListener(this);
-        //btEcrire.addActionListener(this);
-        //btNePasEcrire.addActionListener(this);
-        //btSelTortue.addActionListener(this); 
+        btAvancer.addActionListener(new ControleurExercice("Avancer", myTortue,myColorTurtle, lastAction));
+        btTourner.addActionListener(new ControleurExercice("Tourner", myTortue,myColorTurtle, lastAction));
+        btEcrire.addActionListener(new ControleurExercice("Ecrire", myTortue,myColorTurtle, lastAction));
+        btNePasEcrire.addActionListener(new ControleurExercice("Ne pas ecrire", myTortue,myColorTurtle, lastAction));
+        btSelTortue.addActionListener(new ControleurExercice("Selectionner autre tortue", myTortue,myColorTurtle, lastAction));
+        btUndo.addActionListener(new ControleurExercice("Annuler", myTortue,myColorTurtle, lastAction));
+        btValider.addActionListener(new ControleurExercice("Valider", myTortue,myColorTurtle, lastAction));
+        btEffacer.addActionListener(new ControleurExercice("Effacer", myTortue,myColorTurtle, lastAction));
+        
         
         barreHaut.add(btValider);
         barreHaut.add(btUndo);
