@@ -65,8 +65,8 @@ public class VueProfHome {
         result = new JButton("Résultats");
         result.addActionListener(new ActionListener () {
             public void actionPerformed (ActionEvent e) {
-                VueTree resultats =  new VueTree(); 
-                resultats.CreationTree();
+               // VueResultat resultats =  new VueResultat(); 
+                //resultats.CreationTree();
             }
         });
         

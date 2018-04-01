@@ -45,12 +45,12 @@ public class ControleurTable implements ListSelectionListener {
 
             int selectedRow = lsm.getMinSelectionIndex();
 
-            Personne selectedEleve = classe
-                    .get(table.convertRowIndexToModel(selectedRow));
-            System.out.println(
-                    "The row " + selectedEleve.toString() + " is now selected");
+      //      Personne selectedEleve = classe
+       //             .get(table.convertRowIndexToModel(selectedRow));
+           // System.out.println(
+           //         "The row " + selectedEleve.toString() + " is now selected");
 
-            vue.controllerJTreeCall(selectedEleve);
+           // vue.controllerJTreeCall(selectedEleve);
         }
     }
 }
