@@ -30,22 +30,17 @@ package Vue;
 
 import Controleur.ControleurEleve;
 import Modele.InfoBDD;
+import Modele.ListExo;
 import Modele.Personne;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 
 
 
@@ -57,6 +52,9 @@ public class VueEleveHome extends JFrame {
     private String nom, prenom; 
     private int idEleve;
     private JLabel nom_prenomEleve; 
+    private JScrollPane scroll = new JScrollPane(myFrameEleveHome);
+    
+    int N = 0;
             
             
     public VueEleveHome(int idPersonne, JFrame currentFrame) {
@@ -67,7 +65,8 @@ public class VueEleveHome extends JFrame {
     idEleve = idPersonne; 
     
     ArrayList<Personne> listPersonne = InfoBDD.getListPersonne(); //recupere la liste des personnes inscrites
-         
+    ArrayList<ListExo>  ListExercice = InfoBDD.getListExercice(); //recupere la liste des exercices
+    
     for (Personne personne : InfoBDD.getListPersonne()) {
         if ((personne.getIdPersonne() == idEleve)){
             nom=personne.getNom(); 
@@ -75,27 +74,51 @@ public class VueEleveHome extends JFrame {
         }
     } 
     
+    
     String nom_prenom = ("Bonjour "+prenom+" "+nom);
     nom_prenomEleve = new JLabel(nom_prenom);
         
+    // boucle qui parcours le code pour determiner N = Nombre d'exercices réalisées par l'eleve
+ // for (ListExo listExo : InfoBDD.getListExercice()) {
+ //         N=N+1;
+ //     }
+  //} 
+  
+          InfoBDD.getListExercice().forEach((_item) -> {
+            N=N+1;
+        }); 
+    
+    
+    
     affichageIdentite = new JPanel();
     affichageIdentite.add(nom_prenomEleve); 
     panelP = new JPanel();
     tableau = new JPanel();
     
     btQuitter = new JButton("Quitter");
+    JButton[] Exercices = new JButton[N];
+    
+    for (int i=1; i<N; i++)
+{
+    Exercices[i] = new JButton("Exercice "+i);
+   // Exercices[i].addActionListener(this);
+    tableau.add(Exercices[i]);
+}
     
     btQuitter.addActionListener(new ControleurEleve(myFrameEleveHome, "Quitter", idEleve));
     
-    affichageIdentite.setLayout(new GridLayout(3, 1));
+    
+    affichageIdentite.setLayout(new GridLayout(1, 3));
+    tableau.setLayout(new GridLayout(N, 1));
+    
     panelP.setPreferredSize(new Dimension(200, 200));
     
     
     
     affichageIdentite.add(btQuitter);
-    
-    
+    panelP.add(scroll, BorderLayout.CENTER);
     panelP.add(affichageIdentite,BorderLayout.NORTH);
+    panelP.add(tableau,BorderLayout.CENTER);
     myFrameEleveHome.add(panelP);
      
     myFrameEleveHome.setContentPane(panelP);

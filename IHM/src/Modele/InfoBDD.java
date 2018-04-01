@@ -22,6 +22,7 @@ public class InfoBDD {
     private static ArrayList<Personne> listE;
     private static ArrayList<Classe> listC;
     private static ArrayList<Personne> listEleveClasse;
+    private static ArrayList<ListExo> ListEx;
     /**
     * Création de la liste Tentative (tentatives des exercices)
     */
@@ -172,5 +173,37 @@ public class InfoBDD {
         }
         return listEleveClasse;
     } 
+    
+        public static ArrayList<ListExo> getListExercice () {
+        
+        ListEx = new ArrayList<ListExo>();
+        Connection recon = connect();
+        Statement stmt = null;
+        String sql = "select IdExercice, Difficulté, IdPersonne from Exercice";
+
+        try{
+            stmt = recon.createStatement();
+
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int idEx = rs.getInt("IdExercice");
+                int Dif = rs.getInt("Difficulté");
+                int idP = rs.getInt("IdPersonne");
+                
+              
+                ListExo ex = new ListExo (idEx, Dif, idP);
+                System.out.println(ex.InfoExo());
+
+                ListEx.add(ex);                          
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return ListEx;
+    }
+    
+    
     
 }
