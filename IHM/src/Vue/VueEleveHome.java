@@ -54,7 +54,7 @@ public class VueEleveHome extends JFrame {
     private JLabel nom_prenomEleve; 
     private JScrollPane scroll = new JScrollPane(myFrameEleveHome);
     
-    int N = 0;
+    int N = 1;
             
             
     public VueEleveHome(int idPersonne, JFrame currentFrame) {
@@ -118,7 +118,7 @@ public class VueEleveHome extends JFrame {
     affichageIdentite.add(btQuitter);
     panelP.add(scroll, BorderLayout.CENTER);
     panelP.add(affichageIdentite,BorderLayout.NORTH);
-    panelP.add(tableau,BorderLayout.CENTER);
+    panelP.add(tableau,BorderLayout.WEST);
     myFrameEleveHome.add(panelP);
      
     myFrameEleveHome.setContentPane(panelP);
