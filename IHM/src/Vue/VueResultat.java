@@ -33,10 +33,7 @@ public class VueResultat extends JFrame{
     private JLabel classe;
     protected JFrame myFrameResultat;
     
-    public VueResultat(JFrame currentFrame){
-        myFrameResultat = currentFrame; 
-        myFrameResultat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+    public VueResultat(){        
          racine = new DefaultMutableTreeNode("GPhy");
          CreationTree();
          tree = new JTree(racine);
@@ -48,10 +45,10 @@ public class VueResultat extends JFrame{
          nom.setPreferredSize(new Dimension(150,150));
          infoEleve = new JPanel();
          infoEleve.add(nom);
-         myFrameResultat.add(infoEleve);
-         myFrameResultat.add(tree, BorderLayout.NORTH);
-         myFrameResultat.setPreferredSize(new Dimension(200,200));
-         myFrameResultat.setVisible(true);
+         this.add(infoEleve);
+         this.add(tree, BorderLayout.NORTH);
+         this.setPreferredSize(new Dimension(200,200));
+         this.setVisible(true);
     }
     
     public void CreationTree(){
@@ -136,8 +133,7 @@ public class VueResultat extends JFrame{
     }
     
      public static void main(String[] args) {
-            JFrame j = new JFrame();
-            VueResultat vue = new VueResultat(j);
+            VueResultat vue = new VueResultat();
 }
     
 }

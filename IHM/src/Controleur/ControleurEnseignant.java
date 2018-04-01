@@ -13,6 +13,7 @@ import Vue.VueEleveHome;
 import Vue.VueEvaluationTentative;
 import Vue.VueModificationExercice;
 import Vue.VueProfHome;
+import Vue.VueResultat;
 import Vue.VueTable;
 import Vue.VueTree;
 import java.awt.event.ActionEvent;
@@ -51,8 +52,7 @@ public void actionPerformed(ActionEvent ae) {
             break; 
         }
         case "resultats": {
-            VueTree resultats =  new VueTree(); 
-            resultats.CreationTree();
+            VueResultat resultats =  new VueResultat(); 
             break; 
         }
         case "modifExo":{
