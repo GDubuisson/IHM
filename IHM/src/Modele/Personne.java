@@ -23,7 +23,7 @@ public class Personne {
     private String Prenom;
     private String Mdp;
     private boolean Enseignant;
-    private int Classe;
+    private Classe classe;
     
     private ArrayList<Personne> listP;
 
@@ -31,20 +31,36 @@ public class Personne {
     }
     
     
-    public Personne(int idPersonne, String Nom, String Prenom, int Classe, String Mdp, boolean Enseignant) {
+    public Personne(int idPersonne, String Nom, String Prenom, Classe Classe, String Mdp, boolean Enseignant) {
         this.idPersonne = idPersonne;
         this.Nom = Nom;
         this.Prenom = Prenom;
-        this.Classe = Classe;
+        this.classe = Classe;
         this.Mdp = Mdp;
         this.Enseignant = Enseignant;
     }
     
-    public Personne(int idPersonne, String Nom, String Prenom, int Classe) {
+    public Personne(int idPersonne, String Nom, String Prenom) {
         this.idPersonne = idPersonne;
         this.Nom = Nom;
         this.Prenom = Prenom;
-        this.Classe = Classe;
+        //this.classe = Classe;
+    }
+    
+    public Personne(int idPersonne, String nom, String prenom, String mdp, boolean ens) {
+        this.idPersonne = idPersonne;
+        this.Nom = nom;
+        this.Prenom = prenom;
+        this.Mdp = mdp;
+        this.Enseignant = ens;
+        //this.classe = Classe;
+    }
+    
+    public Personne(int idPersonne, String Nom, String Prenom, Classe classe) {
+        this.idPersonne = idPersonne;
+        this.Nom = Nom;
+        this.Prenom = Prenom;
+        this.classe = classe; 
     }
 
     public int getIdPersonne() {
@@ -71,12 +87,12 @@ public class Personne {
         this.Prenom = Prenom;
     }
 
-    public int getClasse() {
-        return Classe;
+    public Classe getNomClasse() {
+        return classe;
     }
 
-    public void setClasse(int Classe) {
-        this.Classe = Classe;
+    public void setClasse(Classe classe) {
+        this.classe = classe;
     }
 
     public String getMdp() {
@@ -96,6 +112,6 @@ public class Personne {
     }  
     
     public String Info(){
-        return this.getIdPersonne()+" "+this.getPrenom()+" "+this.getNom()+" "+this.getClasse()+ " enseignant : "+this.isEnseignant(); 
+        return this.getIdPersonne()+" "+this.getPrenom()+" "+this.getNom()+" "+this.getNomClasse()+ " enseignant : "+this.isEnseignant(); 
     }
 }

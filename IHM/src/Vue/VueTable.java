@@ -32,9 +32,9 @@ public class VueTable extends JScrollPane {
      * @param vue
      */
     public VueTable(VueTree vue) {
-        Classe classe = new Classe(0, "");
+        Classe classe = new Classe("");
         this.vue = vue;
-        modeleTable = new ModeleStatique();
+        modeleTable = new ModeleStatique(classe);
 
         table = new JTable(modeleTable);
         table.setAutoCreateRowSorter(true); //trie automatique des cellules
@@ -52,7 +52,7 @@ public class VueTable extends JScrollPane {
      */
     public void setData(Classe classe) {
         
-        modeleTable = new ModeleStatique();
+        modeleTable = new ModeleStatique(classe);
         table = new JTable(modeleTable);
         table.setAutoCreateRowSorter(true);
         table.setCellSelectionEnabled(true);
@@ -62,18 +62,17 @@ public class VueTable extends JScrollPane {
         this.setViewportView(table);
         listSelectionModel = table.getSelectionModel();
         listSelectionModel.addListSelectionListener(new ControleurTable(table, classe, vue));
-        /*ArrayList<Classe> listEleveClasse = InfoBDD.getListEleveClasse();
         for (Personne pers : classe.getEleves()) {
-            System.out.println(el.getNom());
+            System.out.println(pers.getNom());
             this.modeleTable.fireTableDataChanged();
-        }*/
+        }
     }
 
     /**
      * Classe permettant la gestion de l'affichage la JTable
      */
-    public class ModeleStatique extends AbstractTableModel {
-
+    static class ModeleStatique extends AbstractTableModel {
+        private static final long serialVersionUID = 3833559037349078513L;
         private ArrayList<Personne> personne;
 
         /**
@@ -81,26 +80,33 @@ public class VueTable extends JScrollPane {
          *
          * @param classe
          */
-        public ModeleStatique() {
+      /*  public ModeleStatique() {
             for (Classe classeActive : InfoBDD.getListClasse()){
                  System.out.println(InfoBDD.getListEleveClasse(classeActive.getIdClasse()));
             }
+        }*/
+        public ModeleStatique(Classe classe) {
+            personne = classe.getEleves();
+            }
+
+        @Override
+        public int getRowCount() {
+            return 5;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+        
+        @Override
+        public int getColumnCount() {
+           return 5;// throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        
+        @Override
+        public String getColumnName(int columnIndex) {
+	    return entetes[columnIndex];
+	}
 
         private final String[] entetes = {"ID", "Nom", "Prénom", "Garçon/Fille", "Âge"};
 
-        public int getRowCount() {
-            return 2; //classeActive.size();
-        }
-
-        public int getColumnCount() {
-            return entetes.length;
-        }
-
-        public String getColumnName(int columnIndex) {
-            return entetes[columnIndex];
-        }
-
+        @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
             switch (columnIndex) {
                 case 0:
@@ -123,5 +129,10 @@ public class VueTable extends JScrollPane {
     public JTable getTable() {
         return this.table;
     }
+    
+    public static void main(String[] args) {
+            VueTree vue = new VueTree();
+            VueTable table = new VueTable(vue);
+}
 }
 

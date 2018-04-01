@@ -16,18 +16,20 @@ public class Classe {
      * Constructeur de la classe 
      * @param idClasse
      * @param nomClasse
-     */
-    public Classe(int idClasse, String nomClasse) {
-
+     */    
+      public Classe(String nomClasse) {
+          this.nomClasse = nomClasse;
+      //  this.idClasse = idClasse;
+        //this.listeEleves = new ArrayList<Personne>();
+    }
+     
+    public Classe(String nomClasse, int idClasse){
         this.nomClasse = nomClasse;
         this.idClasse = idClasse;
-        this.listeEleves = new ArrayList<Personne>();
     }
-    
-      public Classe(int idClasse) {
-        this.idClasse = idClasse;
-        this.listeEleves = new ArrayList<Personne>();
-    }
+      
+     public Classe(){
+     }
 
     /**
      * Méthode qui permet d'ajouter des élèves à la classe 
@@ -47,15 +49,14 @@ public class Classe {
     }
     
     public int getIdClasse(){
-        return this.idClasse;
+        return idClasse;
     }
-
     /**
      * Methode qui donne la liste des élèves présent dans la classe 
      * @return liste d'élève
-     *//*
-    public ArrayList<Eleve> getEleves() {
-        return this.effectif;
+     */
+    public ArrayList<Personne> getEleves() {
+        return this.listeEleves;
     }
 
     /**
@@ -97,7 +98,7 @@ public class Classe {
      * @param index
      * @return élève correspondant 
      */
-    public Personne get(int index) {
+/*    public Personne get(int index) {
 
         return listeEleves.get(index);
     }
@@ -110,7 +111,11 @@ public class Classe {
         this.niveau = niveau;
 
     }*/
+/*
 public String Info(){
         return this.getIdClasse()+" "+this.getNomClasse()+" "; 
+    }*/
+    public String Info(){
+        return this.getNomClasse()+" "; 
     }
 }
