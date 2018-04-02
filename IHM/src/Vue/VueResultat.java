@@ -33,7 +33,10 @@ public class VueResultat extends JFrame{
     private JLabel classe;
     protected JFrame myFrameResultat;
     
-    public VueResultat(){        
+    public VueResultat(){
+        //myFrameResultat = currentFrame; 
+       // myFrameResultat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
          racine = new DefaultMutableTreeNode("GPhy");
          CreationTree();
          tree = new JTree(racine);
@@ -43,8 +46,15 @@ public class VueResultat extends JFrame{
        
          nom = new JLabel("Nom");
          nom.setPreferredSize(new Dimension(150,150));
+         prenom = new JLabel("Prénom");
+         prenom.setPreferredSize(new Dimension(150,150));
+         classe = new JLabel("Classe");
+         classe.setPreferredSize(new Dimension(150,150));
+         
          infoEleve = new JPanel();
          infoEleve.add(nom);
+         infoEleve.add(prenom);
+         infoEleve.add(classe);
          this.add(infoEleve);
          this.add(tree, BorderLayout.NORTH);
          this.setPreferredSize(new Dimension(200,200));
@@ -54,12 +64,13 @@ public class VueResultat extends JFrame{
     public void CreationTree(){
             for (Classe classe : InfoBDD.getListClasse()){
                 DefaultMutableTreeNode noeudC = new DefaultMutableTreeNode (classe);
-                racine.add(noeudC);
+                
                  System.out.println(InfoBDD.getListEleveClasse(classe));
                 for (Personne p : InfoBDD.getListEleveClasse(classe)){
-                    DefaultMutableTreeNode noeudE = new DefaultMutableTreeNode (p.getNom() + " " + p.getPrenom());
+                    DefaultMutableTreeNode noeudE = new DefaultMutableTreeNode (p);
                     noeudC.add(noeudE);    
-                }  
+                } 
+                racine.add(noeudC);
             }   
         }
     
@@ -67,18 +78,11 @@ public class VueResultat extends JFrame{
         if (selectedNode instanceof Personne) {
             personneActive = (Personne)selectedNode; 
             classeActive= personneActive.getNomClasse();
-            update(); //mis à jour
-            
-            System.out.println(classeActive);
-            System.out.println("Personne" + personneActive);
-            System.out.println("hey");
             update();//mis à jour
             
         }else if(selectedNode instanceof Classe){ //si l'élément choisi est une classe
             personneActive = null; //il n'y a pas d'élève courant
             classeActive = (Classe)selectedNode; // la classe courante est celle sélectionnée
-            System.out.println(personneActive);
-            System.out.println(classeActive);
             update(); //mis à jour
             
         }else{
@@ -91,17 +95,15 @@ public class VueResultat extends JFrame{
         if (personneActive != null) {
            
             infoEleve.remove(nom);
-           // infoEleve.remove(prenom);
-            //infoEleve.remove(classe);
+            infoEleve.remove(prenom);
            // panExercice.remove(creerExercice);
           //  panExercice.remove(modifierExercice);
             
             nom.setText(personneActive.getNom()); // Nom de l'eleve
-           // prenom.setText(personneActive.getPrenom()); //Prenom de l'eleve
+            prenom.setText(personneActive.getPrenom()); //Prenom de l'eleve
             
-            infoEleve.add(nom, BorderLayout.WEST);
-           // infoEleve.add(prenom, BorderLayout.CENTER);
-          //  infoEleve.add(classe,BorderLayout.EAST);
+            infoEleve.add(nom);
+            infoEleve.add(prenom);
            // VisuTableExEleveProf tableExEleveProf = new VisuTableExEleveProf(currentEleve);
           //  panExercice.add(tableExEleveProf);
             this.repaint();
@@ -109,16 +111,16 @@ public class VueResultat extends JFrame{
              
         }else if(classeActive != null) {
             
-            infoEleve.remove(nom);
+            infoEleve.remove(classe);
            // infoEleve.remove(prenom);
             //infoEleve.remove(classe);
            // panExercice.remove(creerExercice);
           //  panExercice.remove(modifierExercice);
             
-            nom.setText(classeActive.getNomClasse().toString()); // Nom de l'eleve
+            classe.setText(classeActive.getNomClasse().toString()); // Nom de l'eleve
            // prenom.setText(personneActive.getPrenom()); //Prenom de l'eleve
             
-            infoEleve.add(nom, BorderLayout.WEST);
+            infoEleve.add(classe, BorderLayout.WEST);
            // infoEleve.add(prenom, BorderLayout.CENTER);
           //  infoEleve.add(classe,BorderLayout.EAST);
            // VisuTableExEleveProf tableExEleveProf = new VisuTableExEleveProf(currentEleve);
