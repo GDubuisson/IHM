@@ -30,22 +30,21 @@ public class IHM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        VueTentativeSansModif TestTentativesansmodif = new VueTentativeSansModif();
-        //VueCreaExercice TestCreaExo = new VueCreaExercice();
-//        EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                try {
-//                    //VueTree frame = new VueTree();
-//        
-//                    //frame.createTree();
-//                    SQLiteConnection sql = new SQLiteConnection();
-//                    sql.connect();
-//                    VueConnexion connexion = new VueConnexion(); 
-////
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                } 
-//            }
-//        });
+        
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    //VueTree frame = new VueTree();
+        
+                    //frame.createTree();
+                    SQLiteConnection sql = new SQLiteConnection();
+                    sql.connect();
+                    VueConnexion connexion = new VueConnexion(); 
+//
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } 
+            }
+        });
     }
 }
