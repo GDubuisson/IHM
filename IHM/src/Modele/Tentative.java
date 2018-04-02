@@ -5,7 +5,7 @@
  */
 package Modele;
 
-import java.util.ArrayList;
+import java.util.*;
 /**
  *
  * @author AS
@@ -15,8 +15,8 @@ public class Tentative extends Exercice {
     public int nbEssai;
     public int score;
     
-    public Tentative (ArrayList<String> Code) {
-        super(Code);
+    public Tentative (Stack<String> Code) {
+        super(Code,1);
     }
     
     public int getNbEssai() {

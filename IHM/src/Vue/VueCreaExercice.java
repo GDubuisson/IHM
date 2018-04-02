@@ -7,8 +7,6 @@ package Vue;
 
 import Tortue.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.util.*;
 import Controleur.ControleurExercice;
@@ -23,7 +21,6 @@ public class VueCreaExercice extends JFrame {
     private JPanel barreHaut, panelPrincip, panelCode, barreBas, panelDessinProf;
     private Stack<String> lastAction;
     private TortueG myTortue,myGraphicTurtle,myColorTurtle;
-    private ControleurExercice myC;
     
      
     
@@ -40,7 +37,6 @@ public class VueCreaExercice extends JFrame {
         barreBas = new JPanel();
         panelDessinProf = Tortue.Canvas.getCanvasPanel();
         lastAction=new Stack();
-        myC = new ControleurExercice("Avancer", myTortue, myTortue, lastAction);
         
         
         btValider = new JButton("Valider");
@@ -60,14 +56,14 @@ public class VueCreaExercice extends JFrame {
         
 
         
-        btAvancer.addActionListener(new ControleurExercice("Avancer", myTortue,myColorTurtle, lastAction));
-        btTourner.addActionListener(new ControleurExercice("Tourner", myTortue,myColorTurtle, lastAction));
-        btEcrire.addActionListener(new ControleurExercice("Ecrire", myTortue,myColorTurtle, lastAction));
-        btNePasEcrire.addActionListener(new ControleurExercice("Ne pas ecrire", myTortue,myColorTurtle, lastAction));
-        btSelTortue.addActionListener(new ControleurExercice("Selectionner autre tortue", myTortue,myColorTurtle, lastAction));
-        btUndo.addActionListener(new ControleurExercice("Annuler", myTortue,myColorTurtle, lastAction));
-        btValider.addActionListener(new ControleurExercice("Valider", myTortue,myColorTurtle, lastAction));
-        btEffacer.addActionListener(new ControleurExercice("Effacer", myTortue,myColorTurtle, lastAction));
+        btAvancer.addActionListener(new ControleurExercice("Avancer", myTortue,myColorTurtle, lastAction,panelCode));
+        btTourner.addActionListener(new ControleurExercice("Tourner", myTortue,myColorTurtle, lastAction,panelCode));
+        btEcrire.addActionListener(new ControleurExercice("Ecrire", myTortue,myColorTurtle, lastAction,panelCode));
+        btNePasEcrire.addActionListener(new ControleurExercice("Ne pas ecrire", myTortue,myColorTurtle, lastAction,panelCode));
+        btSelTortue.addActionListener(new ControleurExercice("Selectionner autre tortue", myTortue,myColorTurtle, lastAction,panelCode));
+        btUndo.addActionListener(new ControleurExercice("Annuler", myTortue,myColorTurtle, lastAction,panelCode));
+        btValider.addActionListener(new ControleurExercice("Valider", myTortue,myColorTurtle, lastAction,panelCode));
+        btEffacer.addActionListener(new ControleurExercice("Effacer", myTortue,myColorTurtle, lastAction,panelCode));
         
         
         barreHaut.add(btValider);

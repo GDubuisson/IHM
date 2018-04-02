@@ -7,9 +7,10 @@ package Controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.*;
-import javax.swing.*;
 import java.util.*;
 import Tortue.*;
+import Modele.Exercice;
+import javax.swing.*;
 
 
 /**
@@ -23,18 +24,26 @@ public class ControleurExercice implements ActionListener {
     Stack<String> lAction;
     TortueG graphicTurtle;
     int tTortue;
+    JPanel monCode;
     
-    public ControleurExercice(String nameButton, TortueG myTortue, TortueG myTurtle2, Stack<String> lastAction){
+    public ControleurExercice(String nameButton, TortueG myTortue, TortueG myTurtle2, Stack<String> lastAction, JPanel panelCode){
         nameB = nameButton;
         myTurtle=myTortue;
         lAction=lastAction;
         graphicTurtle = myTurtle2;
+        monCode = panelCode;
     };
     
         @Override
         public void actionPerformed(ActionEvent ae) {
             if (nameB != null) switch (nameB){
                 case "Valider":{
+                    Exercice exo = new Exercice(lAction,1);
+                    exo.ajoutLigneCode();
+                    Stack<String> test = exo.getLigneCode(1);
+                    for (int i=0;i<test.size();i++) {
+                        System.out.println(i+test.elementAt(i));
+                    }
                     break;
                 }
                 case "Annuler":{
