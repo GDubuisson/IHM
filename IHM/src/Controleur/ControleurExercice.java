@@ -40,32 +40,23 @@ public class ControleurExercice implements ActionListener {
                 case "Annuler":{
                     if (!lAction.empty()) {
                         lAction.pop();
-                        System.out.println("1");
-                        myTurtle.reset();
+                        //myTurtle.reset();
                         for (int i = 0; i < lAction.size(); i++) {
-                            System.out.println("2");
                             if (null == lAction.elementAt(i)) {
-                                System.out.println("3");
                                 break;
                             } else {
                                 switch (lAction.elementAt(i)) {
                                     case "avancer":
-                                        System.out.println("4");
                                         myTurtle.avancer();
                                         break;
                                     case "tourner":
-                                        System.out.println("5");
                                         myTurtle.tourner();
                                         break;
                                     case "ecrire":
-                                        System.out.println("6");
                                         myTurtle.tracer(true);
                                         break;
                                     case "npecrire":
-                                        System.out.println("7");
                                         myTurtle.tracer(false);
-                                        break;
-                                    default:
                                         break;
                                 }
                             }
@@ -75,7 +66,7 @@ public class ControleurExercice implements ActionListener {
                 case "Effacer":{
                     while(!lAction.empty()){
                     lAction.pop();
-                }
+                    }
                     myTurtle.reset();
                 }
                 case "Retour au menu": {
@@ -110,9 +101,6 @@ public class ControleurExercice implements ActionListener {
                     }
                 default:
                     break;
-            }
-            for (int i = 0; i < lAction.size(); i++) {
-                System.out.println(lAction.elementAt(i));
             }
         };
     

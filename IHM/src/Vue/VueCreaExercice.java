@@ -23,6 +23,7 @@ public class VueCreaExercice extends JFrame {
     private JPanel barreHaut, panelPrincip, panelCode, barreBas, panelDessinProf;
     private Stack<String> lastAction;
     private TortueG myTortue,myGraphicTurtle,myColorTurtle;
+    private ControleurExercice myC;
     
      
     
@@ -39,6 +40,7 @@ public class VueCreaExercice extends JFrame {
         barreBas = new JPanel();
         panelDessinProf = Tortue.Canvas.getCanvasPanel();
         lastAction=new Stack();
+        myC = new ControleurExercice("Avancer", myTortue, myTortue, lastAction);
         
         
         btValider = new JButton("Valider");
@@ -56,17 +58,7 @@ public class VueCreaExercice extends JFrame {
         panelPrincip.setLayout(new BorderLayout());
         panelCode.setPreferredSize(new Dimension(100, 100));
         
-    //btValider.addActionListener(new ControleurExercice(btValider,myTortue,lastAction));
-        
-        //btUndo.addActionListener(this);    
-        
-        btRetourMenu.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //retourmenu
-            }
-        });
-        
-        //btEffacer.addActionListener(this);
+
         
         btAvancer.addActionListener(new ControleurExercice("Avancer", myTortue,myColorTurtle, lastAction));
         btTourner.addActionListener(new ControleurExercice("Tourner", myTortue,myColorTurtle, lastAction));
