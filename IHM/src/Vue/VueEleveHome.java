@@ -25,6 +25,9 @@
  * 27:03            :   Besoin de connexion BDD et Besoin de JTABLE
  *                      Passer les ActionListener dans le controleur
  *-----------------------------------------------------------------------------
+ * 30:03                On passe a une architecture avec Bouton qui mene vers 
+ *                      l'exercice aligné avec champ score et champ essais
+ * 
  */
 package Vue;
 
